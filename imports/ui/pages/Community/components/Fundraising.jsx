@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import '../styling/Fundraising.css'
 
 
-
-const Fundraising = () => {
+const Fundraising = ({fundraising}) => {
     return (
-        <div>Fundraising Page</div>
+        <>
+        <div>Fundrasing Info</div>
+        <div>{fundraising.fundName}</div>
+        <div>{fundraising.fundLink}</div>
+        </>
     )
 }
 

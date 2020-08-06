@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import "../styling/Initiatives.css"
 
 
 
-const Initiatives = ({intiatives}) => {
+const Initiatives = ({ initiatives }) => {
     return (
-        <div>Initiatives Page</div>
+        <div>
+Initiatives
+
+            {initiatives.organizationInitiatives.map(intiative =>
+                <div>
+                    <div>{intiative}</div>
+                </div>
+
+            )}
+        </div>
     )
 }
 

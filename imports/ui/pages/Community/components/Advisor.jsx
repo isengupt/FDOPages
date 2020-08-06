@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Advisor.css'
+import '../styling/Advisor.css'
 
 
 const Advisor = ({ advisor }) => {

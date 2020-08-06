@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-
-
+import "../styling/Story.css"
 
 const Story = ({story}) => {
     return (
-        <div>Story Page</div>
+        <>
+        <div>{story.title}</div>
+        <div>{story.story}</div>
+       <img className = "story__image"src={story.founderImage} alt=""/>
+        <div>{story.Name}</div>
+        </>
     )
 }
 
