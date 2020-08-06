@@ -1,0 +1,32 @@
+.navbar__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: black;
+}
+
+.navbar__left {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+.navbar__right {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+.navbar__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-evenly; 
+}
+
+.navbar__item {
+    padding: 10px;
+    color: white;
+}
