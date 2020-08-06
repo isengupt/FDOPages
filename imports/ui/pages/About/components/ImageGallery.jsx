@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './styling/Images.css'
+import '../styling/Images.css'
 
 
 
