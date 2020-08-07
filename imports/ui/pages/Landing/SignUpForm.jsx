@@ -26,37 +26,48 @@ export default function SignupForm(props) {
     };
 
     return (
-        <>
-        <form onSubmit={submit} className="login-form">
-                  <div>SignUp</div>
-            <label htmlFor="email">Email</label>
 
+
+        <div className="form__component">
+        <form onSubmit={submit} className="form__container">
+          <div className="form__title__container">
+            <div className="form__title">
+              Sign Up
+         </div>
+          </div>
+  
+          <div className="form__field">
+            <div className="form__input__title">Email</div>
+  
             <Input
-                type="text"
-                placeholder="Email"
-                name="email"
-                required
-         
-                onChange={(e) => setEmail(e.currentTarget.value)}
+              type="text"
+              placeholder="Email"
+              name="email"
+              required
+  
+              onChange={(e) => setEmail(e.currentTarget.value)}
             />
-
-            <label htmlFor="password">Password</label>
-
+          </div>
+          <div className="form__field">
+            <div className="form__input__title">Password</div>
+  
             <Input
-                type="password"
-                placeholder="Password"
-                name="password"
-                required
-            
-                onChange={(e) => setPassword(e.currentTarget.value)}
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+  
+              onChange={(e) => setPassword(e.currentTarget.value)}
             />
-
-            <button type="submit">Sign Up</button>
+          </div>
+          <div className="form__buttons">
+            <button className="ui secondary button" oonClick={() => setLogging('login')}>Sign in to Account</button>
+            <button className="ui primary button" type="submit">Sign up</button>
+  
+          </div>
         </form>
-         <button className="ui primary labeled icon button" onClick={() => setLogging('login')}>
-         <i class="unlock alternate icon"></i>
-             
-             Login to account</button>
-         </>
+  
+      </div>
+      
     );
 };

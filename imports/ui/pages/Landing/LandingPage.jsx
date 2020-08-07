@@ -48,7 +48,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div className="simple-todos-react">
+    <div className="landing__page">
         <div> { news && news.map(item => 
         <div key={item._id}>
           <div>Link: {item.newsLink}</div>

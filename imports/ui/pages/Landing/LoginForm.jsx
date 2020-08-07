@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input, Header } from 'semantic-ui-react'
-
+import "./forms.css"
 
 export const LoginForm = ({ setLogging }) => {
   const [email, setEmail] = useState('')
@@ -20,35 +20,45 @@ export const LoginForm = ({ setLogging }) => {
   };
 
   return (
-    <>
-      <form onSubmit={submit} className="login-form">
-        <div>Login</div>
-        <label htmlFor="email">Email</label>
+    <div className="form__component">
+      <form onSubmit={submit} className="form__container">
+        <div className="form__title__container">
+          <div className="form__title">
+            Sign In
+       </div>
+        </div>
 
-        <Input
-          type="text"
-          placeholder="Email"
-          name="email"
-          required
+        <div className="form__field">
+          <div className="form__input__title">Email</div>
 
-          onChange={(e) => setEmail(e.currentTarget.value)}
-        />
+          <Input
+            type="text"
+            placeholder="Email"
+            name="email"
+            required
 
-        <label htmlFor="password">Password</label>
+            onChange={(e) => setEmail(e.currentTarget.value)}
+          />
+        </div>
+        <div className="form__field">
+          <div className="form__input__title">Password</div>
 
-        <Input
-          type="password"
-          placeholder="Password"
-          name="password"
-          required
+          <Input
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
 
-          onChange={(e) => setPassword(e.currentTarget.value)}
-        />
+            onChange={(e) => setPassword(e.currentTarget.value)}
+          />
+        </div>
+        <div className="form__buttons">
+          <button className="ui secondary button" onClick={() => setLogging('signup')}>Create an Account</button>
+          <button className="ui primary button" type="submit">Log In</button>
 
-        <button type="submit">Log In</button>
-        <button className="ui primary labeled icon button" onClick={() => setLogging('signup')}>Create an account</button>
+        </div>
       </form>
 
-    </>
+    </div>
   );
 };
