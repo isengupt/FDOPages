@@ -1,4 +1,4 @@
 # FDOPages
 FDO Website
 
-Changed readme for testing
+This is the an update Thursday 8:01PM
