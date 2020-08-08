@@ -14,6 +14,8 @@
     "easy-peasy": "^3.3.1",
     "lodash": "^4.17.15",
     "meteor-node-stubs": "^1.0.0",
+    "no-scroll": "^2.1.1",
+    "pubsub-js": "^1.8.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-ga": "^3.1.2",
@@ -24,8 +26,10 @@
     "semantic-ui-react": "^1.1.1",
     "simpl-schema": "^1.9.0",
     "sweetalert": "^2.1.2",
+    "toastr": "^2.1.4",
     "uniforms-bridge-simple-schema-2": "^2.6.5",
-    "uniforms-semantic": "^2.6.5"
+    "uniforms-semantic": "^2.6.5",
+    "validate.js": "^0.13.1"
   },
   "meteor": {
     "mainModule": {

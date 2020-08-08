@@ -3,29 +3,45 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { FlowRouter } from "meteor/ostrio:flow-router-extra"
-import { Menu, Dropdown, Header } from 'semantic-ui-react';
+import Modal from '../utils/Modal'
+import LoginSection from '../pages/Landing/LoginSection'
 import { Roles } from 'meteor/alanning:roles';
-import { useAccount } from "./utils";
 import './Navbar.css'
+import ActionButton from "./ActionButton";
+import { setButtonState, useAccount } from "./utils";
 
 const Navbar = () => {
 
   const [showLogin, setShowLogin] = useState(false); // manage, import
+  const [showModal, setShowModal] = useState(false); // manage, import
+  const { user, userId, isLoggingIn} = useAccount();
+  let subtoken;
+  
+  useEffect(() => {
 
-  const { user, role } = useTracker(() => {
-    Meteor.subscribe('users.all');
-
-    return ({
-      role: Meteor.roleAssignment.find({}).fetch(),
-      user: Meteor.user(),
+    subtoken = PubSub.subscribe("MANAGE_DATA", (msg, data) => {
+      if (!user && !isLoggingIn) {
+        setShowLogin(true);
+      }
     });
-  });
+    return function cleanup() {
+      PubSub.unsubscribe(subtoken);
+    };
+  }, [user, isLoggingIn]);
 
-  function logout() {
-    Meteor.logout();
-  }
+  useEffect(() => {
+    if (user) {
+      setShowLogin(false);
+      setShowModal(false);
+    }
+  }, [user]);
 
-  console.log(role)
+  useEffect(() => {
+    if (!user && !isLoggingIn) {
+      setShowLogin(true);
+      
+    }
+  }, [user]);
 
 
   return (
@@ -56,28 +72,35 @@ const Navbar = () => {
       <div className="navbar__right">
 
         <div className="navbar__links">
-          {role[0] ? <div className="navbar__item">{role[0].role._id}</div> : <div className="navbar__item">No Role</div>}
-          {user ?
-            <>
-              <div className="navbar__item">
-                {user.username}
+        <div className="navbar-buttons">
+                  { showLogin ?
+                    <>
+                      <Modal
+                        isOpen={showModal}
+                        closeModal={() => {
+                          setShowModal(false);
+                          if (!user) {
+                            if ( "/" !== FlowRouter.current().path )  FlowRouter.go("/");
+                          }
+                        }}
+                      >
+                        <LoginSection />
+                      </Modal>
+                      <button
+                        aria-current="page"
+                        className="button w-button w--current"
+                        onClick={(event) =>
+                          event.preventDefault() || setShowModal(true)
+                        }
+                      >
+                        Login
+                      </button>
+                    </>
+                    :
+                    <ActionButton />
+                  }
+                </div>
 
-              </div>
-              <div className="navbar__item">
-                <a href="/createEvent">createEvent</a>
-              </div>
-              <div className="navbar__item">
-                <a href="/listEvents">listEvents</a>
-              </div>
-              <div className="navbar__item">
-                <button onClick={logout}>Logout</button>
-              </div>
-            </>
-            :
-            <div className="navbar__item">
-              <div>Login</div>
-            </div>
-          }
         </div>
 
       </div>

@@ -4,16 +4,18 @@ import "../styling/Initiatives.css"
 
 
 const Initiatives = ({ initiatives }) => {
+
     return (
         <div>
-Initiatives
+            Initiatives
 
-            {initiatives.organizationInitiatives.map(intiative =>
+            {initiatives.map(initiative =>
                 <div>
-                    <div>{intiative}</div>
+                    <div>{initiative}</div>
                 </div>
-
-            )}
+            )
+      
+            }
         </div>
     )
 }

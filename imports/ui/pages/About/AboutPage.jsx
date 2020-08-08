@@ -1,40 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Initiatives from './components/Initiatives'
 import Mission from './components/Mission'
 import Story from './components/Story'
 import ImageGallery from './components/ImageGallery'
 import { useTracker } from 'meteor/react-meteor-data';
 import { About } from '../../../api/schema/About';
+import { setButtonState, useAccount } from "../../utils/utils"
+import { set } from 'lodash';
+
 
 const AboutPage = () => {
+  const { user, isLoggingIn } = useAccount();
+  const [aboutData, setAboutData] = useState(false);
+  const [editable, setEditable] = useState(false);
 
-  const { about, user } = useTracker(() => {
 
-    Meteor.subscribe('AboutInfo');
+  useEffect(() => {
+    Meteor.call("getCurrentAboutData", (e, r) => {
+      if (!e) setAboutData(r);
+      console.log(r)
 
-    return ({
-      about: About.find({}).fetch(),
-      user: Meteor.user(),
+
     });
-  });
+  }, []);
 
-  console.log(about)
+  useEffect(() => {
+    Meteor.call("setEditable", (e, r) => {
+      console.log(e)
+      if (!e) {
+
+        if(r) {
+          setButtonState("edit-data")
+        }
+        else setButtonState("dashboard")
+      }
+
+    });
+  }, [user, isLoggingIn])
+
+
+
   return (
     <div>
-
-
-      {about[0] ?
-        <div>
-          <h1> {about[0].organizationName} About Page</h1>
-          <Story story={about[0].story} />
-          <Initiatives initiatives={about[0].initiatives} />
-          <Mission mission={about[0].mission} />
-          <ImageGallery images={about[0].imageGallery} />
+      {aboutData ?
+        <div className="about-container">
+          <Initiatives user={user} initiatives={aboutData.initiatives}/>
+          <Mission user={user} mission={aboutData.mission}/>
+          <Story user={user} story={aboutData.story}/>
+          <ImageGallery user={user} images={aboutData.images}/>
         </div>
         :
-        <div>
-          Loading...
-            </div>}
+        <div>Loading the information</div>
+
+      }
+
+
     </div>
   )
 }

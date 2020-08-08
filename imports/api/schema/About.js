@@ -77,5 +77,10 @@ const AboutSchema = new SimpleSchema({
 
 About.attachSchema(AboutSchema);
 
+if (Meteor.isServer) {
+    About.rawCollection().createIndex({organizationName: -1});
+
+  }
+
 
 export { About, AboutSchema, InitiativeComponent, Story, Mission};

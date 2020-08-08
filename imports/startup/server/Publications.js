@@ -29,17 +29,18 @@ Meteor.publish('UpcomingEvents', function publish() {
   }
   return this.ready();
 })
-Meteor.publish('AboutInfo', function publish() {
-  //If user is logged in publish profile
-  if (this.userId) {
-    //If user is admin show all published profile
-    return [
-      About.find({}),
-     
-    ]
-  }
-  return this.ready();
-})
+
+
+
+
+Meteor.publish({
+  AboutInfo: function () {
+    if (!this.userId) return [];
+
+    // @TODO Restrict fields
+    return About.find({});
+  },
+});
 
 Meteor.publish('ChapterInfo', function publish() {
   //If user is logged in publish profile
