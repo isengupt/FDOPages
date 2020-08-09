@@ -6,7 +6,7 @@ import ImageGallery from './components/ImageGallery'
 import { useTracker } from 'meteor/react-meteor-data';
 import { About } from '../../../api/schema/About';
 import { setButtonState, useAccount } from "../../utils/utils"
-import { set } from 'lodash';
+
 
 
 const AboutPage = () => {
@@ -25,12 +25,12 @@ const AboutPage = () => {
   }, []);
 
   useEffect(() => {
-    Meteor.call("setEditable", (e, r) => {
+    Meteor.call("setEditable", "about", (e, r) => {
       console.log(e)
       if (!e) {
 
         if(r) {
-          setButtonState("edit-data")
+          setButtonState("edit-about")
         }
         else setButtonState("dashboard")
       }

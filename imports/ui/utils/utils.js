@@ -26,7 +26,8 @@ export const useAccount = () =>
     "sign-up",
     "dashboard-manage-locations",
     "login",
-    "edit-data",
+    "edit-about",
+    "edit-community",
     "save-edit"
   ];
 

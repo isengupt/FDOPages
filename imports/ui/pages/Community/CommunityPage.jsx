@@ -1,43 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Initiatives from './components/Initiatives'
 import Leadership from './components/Leadership'
 import History from './components/History'
 import Advisor from './components/Advisor'
 import ImageGallery from './components/ImageGallery'
 import Fundraising from './components/Fundraising'
-
+import { setButtonState, useAccount } from "../../utils/utils"
 import { useTracker } from 'meteor/react-meteor-data';
 import { ChapterInfo } from '../../../api/schema/ChapterInfo';
 const CommunityPage = () => {
+  const { user, isLoggingIn } = useAccount();
+  const [communityData, setCommunityData] = useState(false);
+  const [editable, setEditable] = useState(false);
 
-    const { chapter, user } = useTracker(() => {
+  useEffect(() => {
+    Meteor.call("getCurrentCommunityData", (e, r) => {
+      console.log(e)
+      if (!e) {
+        
+      setCommunityData(r);
+      console.log(r)
+      }
+     
 
-        Meteor.subscribe('ChapterInfo');
-    
-        return ({
-          chapter: ChapterInfo.find({}).fetch(),
-          user: Meteor.user(),
-        });
-      });
 
-    console.log(chapter)
+    });
+  }, [user]);
+
+  useEffect(() => {
+    Meteor.call("setEditable", "community", (e, r) => {
+
+      if (!e) {
+        console.log(r)
+        if(r) {
+
+          setButtonState("edit-community")
+        }
+        else setButtonState("dashboard")
+      }
+
+    });
+  }, [user, isLoggingIn])
     return (
         <div>
-           {chapter[0] ?
-        <div>
-          <h1> {chapter[0].chapterName} Community Page</h1>
-            <div className="chapter__election"> {chapter[0].electionDate.toString()} </div>
-            <Initiatives initiatives={chapter[0].initiatives}/>
-            <Leadership leadership={chapter[0].leadership}/>
-            <History history = {chapter[0].history}/>
-            <Advisor advisor = {chapter[0].advisor} />
-            <ImageGallery images = {chapter[0].ImageGallery}/>
-            <Fundraising fundraising = {chapter[0].fundraising}/>
-        </div>
-        :
-        <div>
-          Loading...
-            </div>}
+         Community info
           
             
            

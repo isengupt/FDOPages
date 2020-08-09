@@ -10,6 +10,7 @@ import EditEvent from '../ui/pages/Events/EditEvent'
 import AboutPage from '../ui/pages/About/AboutPage'
 import CommunityPage from '../ui/pages/Community/CommunityPage'
 import ProfilePage from '../ui/pages/Profile/Profile'
+import EditAboutPage from '../ui/pages/About/EditAboutPage'
 import Navbar from '../ui/utils/Navbar'
 import Footer from '../ui/utils/Footer'
 import {setButtonState} from '../ui/utils/utils'
@@ -21,6 +22,19 @@ FlowRouter.route("/", {
     mount(Template, {
       Header: Navbar,
       Content: AboutPage,
+      Footer: Footer
+
+    })
+  }
+})
+
+FlowRouter.route("/editAbout", {
+  name: "edit-about",
+  
+  action() {
+    mount(Template, {
+      Header: Navbar,
+      Content: EditAboutPage,
       Footer: Footer
 
     })

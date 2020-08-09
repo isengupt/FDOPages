@@ -22,7 +22,9 @@ const ActionButton = ({ state }) => {
       case "dashboard":
         FlowRouter.go("/dashboard");
         break;
-      case "edit-data":
+      case "edit-community":
+        FlowRouter.go("/editCommunity")
+      case "edit-about":
         FlowRouter.go("/editAbout")
       case "save-edit":
       case "manage-save":
@@ -42,7 +44,8 @@ const ActionButton = ({ state }) => {
     switch (buttonState) {
       case "community":
         return "Community"
-      case "edit-data":
+      case "edit-community":
+      case "edit-about":
         return "Edit"
       case "dashboard":
         return "Dashboard";
