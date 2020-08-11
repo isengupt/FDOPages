@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Initiatives from './components/Initiatives'
 import Leadership from './components/Leadership'
 import History from './components/History'
 import Advisor from './components/Advisor'
+import Initiatives from './components/Initiatives'
 import ImageGallery from './components/ImageGallery'
 import Fundraising from './components/Fundraising'
 import { setButtonState, useAccount } from "../../utils/utils"
@@ -41,12 +41,22 @@ const CommunityPage = () => {
 
     });
   }, [user, isLoggingIn])
+
+  
     return (
         <div>
-         Community info
-          
-            
-           
+          {communityData ?
+          <>
+         <Initiatives initiatives = {communityData.initiatives}/>
+         <Advisor advisor = {communityData.advisor}/>
+         <Fundraising fundraising = {communityData.fundraising}/>
+         <ImageGallery images = {communityData.images} />
+         <Leadership leadership={communityData.leadership}/>
+         <History history = {communityData.history}/>
+         </>
+          : 
+          <div>Loading Data</div>
+}
         </div>
     )
 }

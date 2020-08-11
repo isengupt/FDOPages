@@ -7,6 +7,14 @@ const NewsUpdate = new Mongo.Collection('NewsUpdate');
 
 /** Define a schema to specify the structure of each document in the collection. */
 
+const NewsFormSchema = new SimpleSchema({
+  title: String,
+  description: String,
+  newsLink: String,
+  timePosted: Date,
+
+})
+
 
 const NewsUpdateSchema = new SimpleSchema({
   newsLink: {
@@ -45,4 +53,4 @@ NewsUpdate.attachSchema(NewsUpdateSchema);
 
 
 /** Make the collection and schema available to other code. */
-export { NewsUpdate, NewsUpdateSchema };
+export { NewsUpdate, NewsUpdateSchema, NewsFormSchema };

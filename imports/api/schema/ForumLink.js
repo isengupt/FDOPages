@@ -5,6 +5,19 @@ import { Tracker } from 'meteor/tracker';
 /** Define a Mongo collection to hold the data. */
 const ForumLink = new Mongo.Collection('ForumLink');
 
+const ForumFormSchema = new SimpleSchema({
+  title: String,
+  description: String,
+  category: {
+    type: String,
+    allowedValues: ['Homework', 'Career', 'College', 'Tests', 'Courses'],
+    defaultValue: 'Career'
+  },
+
+  timePosted: Date, 
+
+})
+
 /** Define a schema to specify the structure of each document in the collection. */
 
 const CommentComponent = new SimpleSchema({
@@ -22,7 +35,8 @@ const CommentComponent = new SimpleSchema({
   },
   voteCount: {
     type: Number,
-    label: "Amount of votes on the reply"
+    label: "Amount of votes on the reply",
+    defaultValue: 0
   },
   parentComment: {
     type: String,
@@ -57,7 +71,8 @@ const ForumSchema = new SimpleSchema({
   },
   voteCount: {
     type: Number,
-    label: "Number of votes on the forum question"
+    label: "Number of votes on the forum question",
+    defaultValue: 0
   },
   comments: {
     type: Array,
@@ -80,4 +95,4 @@ ForumLink.attachSchema(ForumSchema);
 
 
 /** Make the collection and schema available to other code. */
-export { ForumLink, ForumSchema, CommentComponent };
+export { ForumLink, ForumSchema, CommentComponent, ForumFormSchema };

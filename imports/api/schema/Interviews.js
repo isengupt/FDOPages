@@ -7,6 +7,8 @@ const Interview = new Mongo.Collection('Interview');
 
 /** Define a schema to specify the structure of each document in the collection. */
 
+
+
 const InterviewQuestion = new SimpleSchema({
   question: {
     type: String,
@@ -17,6 +19,37 @@ const InterviewQuestion = new SimpleSchema({
     label: "The reply to the question",
   },
  
+
+})
+
+const InterviewFormSchema = new SimpleSchema({
+  title: {
+    type: String,
+    
+  },
+
+  description: {
+    type: String,
+    
+  },
+
+  timeConducted: {
+      type: Date,
+      
+      optional: true
+  },
+  image: {
+    type: String,
+    
+    optional: true
+  },
+
+  interviewQuestions: {
+    type: Array,
+    
+    defaultValue: []
+  },
+  'interviewQuestions.$': InterviewQuestion,
 
 })
 
@@ -69,4 +102,4 @@ Interview.attachSchema(InterviewSchema);
 
 
 /** Make the collection and schema available to other code. */
-export { Interview, InterviewSchema, InterviewQuestion };
+export { Interview, InterviewSchema, InterviewQuestion, InterviewFormSchema };

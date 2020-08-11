@@ -5,6 +5,33 @@ import { Tracker } from 'meteor/tracker';
 /** Define a Mongo collection to hold the data. */
 const Videos = new Mongo.Collection('Videos');
 
+const VideoFormSchema = new SimpleSchema({
+  title: {
+    type: String,
+    
+  },
+  description: {
+    type: String,
+    
+    max: 500
+  },
+  timePosted: {
+    type: Date,
+    
+  },
+  videoType: {
+    type: String,
+    
+    allowedValues: ['Livestream', 'Interview', 'Vlog', 'Movie'],
+    defaultValue: 'Interview'
+  },
+  videoInput: {
+    type: String,
+    
+  },
+
+})
+
 /** Define a schema to specify the structure of each document in the collection. */
 
 const VideoSchema = new SimpleSchema({
@@ -49,5 +76,5 @@ Videos.attachSchema(VideoSchema);
 
 
 /** Make the collection and schema available to other code. */
-export { Videos, VideoSchema };
+export { Videos, VideoSchema, VideoFormSchema };
 

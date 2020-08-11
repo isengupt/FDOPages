@@ -98,6 +98,14 @@
       "user": "ishan@foo.com",
       "timePosted": 1595632530500,
       "community": "broadneck"
+    },
+    {
+      "newsLink": "https://www.nature.com/articles/d41586-020-02244-1",
+      "title": "China’s coronavirus vaccines are leaping ahead – but face challenges as virus wanes",
+      "description": "Chinese companies are at the forefront of global efforts to create a vaccine for the coronavirus, with more than half a dozen candidates in clinical development...",
+      "user": "ishan@foo.com",
+      "timePosted": 1595632530500,
+      "community": "severna-park"
     }
   ],
   "defaultAnnouncements": [
@@ -106,7 +114,7 @@
       "content": "New updates are rolling out soon...",
       "user": "paxton@foo.com",
       "contact": "paxton@foo.com",
-      "userLevel": "member",
+     
       "timePosted": 1595632530500,
       "community": "broadneck"
     },
@@ -115,7 +123,7 @@
       "content": "New updates are rolling out soon...",
       "user": "ishan@foo.com",
       "contact": "ishan@foo.com",
-      "userLevel": "member",
+     
       "timePosted": 1595632530500,
       "community": "severna-park"
     },
@@ -124,7 +132,7 @@
       "content": "New updates are rolling out soon...",
       "user": "ishanadmin@foo.com",
       "contact": "ishanadmin@foo.com",
-      "userLevel": "super-admin",
+ 
       "timePosted": 1595632530500,
       "community": "super-admin"
     }
@@ -167,6 +175,113 @@
       "eventOccuranceDate": 1595632530500,
       "community": "severna-park"
     }
+  ],
+  "defaultBlogs": [
+    {
+      "title": "Generic Blog 1",
+      "content": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+      "timePosted": 1595632530500,
+      "image": "https://i.imgur.com/ViPItf1.jpg",
+      "user": "ishanadmin@foo.com",
+      "links" : ["https://google.com"],
+      "community": "broadneck"
+    },
+    {
+      "title": "Generic Blog 2",
+      "content": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+      "timePosted": 1595632530500,
+      "image": "https://i.imgur.com/ViPItf1.jpg",
+      "user": "paxtonadmin@foo.com",
+      "links" : ["https://google.com"],
+      "community": "severna-park"
+    }
+  ],
+  "defaultLinks": [
+    {
+      "title": "Generic Interview 1",
+      "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+      "linkType": "Misc Link",
+      "link" : "https://google.com",
+      "owner": "paxtonadmin@foo.com",
+      "community": "broadneck"
+    },
+    {
+      "title": "Generic Interview 2",
+      "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+      "linkType": "Misc Link",
+      "link" : "https://google.com",
+      "owner": "paxtonadmin@foo.com",
+      "community": "severna-park"
+    }
+  ],
+  "defaultInterviews": [
+    {
+      "title": "Generic Interview 1",
+      "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+      "timePosted": 1595632530500,
+      "timeConducted": 1595632530500,
+      "image": "https://i.imgur.com/ViPItf1.jpg",
+      "user": "ishanadmin@foo.com",
+      "community": "broadneck",
+      "interviewQuestions": [
+        {
+          "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+          "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+        },
+        {
+          "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+          "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+        },
+        {
+          "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+          "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+        }
+
+      ]
+    },
+    
+    {
+      "title": "Generic Interview 1",
+      "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+      "timePosted": 1595632530500,
+      "timeConducted": 1595632530500,
+      "image": "https://i.imgur.com/ViPItf1.jpg",
+      "user": "ishanadmin@foo.com",
+      "community": "serverna-park",
+      "interviewQuestions": [
+        {
+          "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+          "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+        },
+        {
+          "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+          "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+        },
+        {
+          "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+          "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+        }
+
+      ]
+    }
+  ],
+  "defaultForumLink": [
+    {
+    "title": "Forum Question 1",
+    "category": "Homework",
+    "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+    "user": "ishanadmin@foo.com",
+    "community": "severna-park",
+    "timePosted": 1595632530500
+    },
+    {
+      "title": "Forum Question 2",
+      "category": "Career",
+      "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+      "user": "paxtonadmin@foo.com",
+      "community": "broadneck",
+      "timePosted": 1595632530500
+      }
   ],
   "defaultAbout": [
     {

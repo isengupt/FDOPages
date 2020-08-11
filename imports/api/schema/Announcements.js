@@ -7,6 +7,11 @@ const Announcements = new Mongo.Collection('Announcements');
 
 /** Define a schema to specify the structure of each document in the collection. */
 
+const AnnouncementFormSchema = new SimpleSchema({
+  title: String,
+  content: String,
+ 
+})
 
 const AnnouncementsSchema = new SimpleSchema({
   title: {
@@ -26,10 +31,7 @@ const AnnouncementsSchema = new SimpleSchema({
     type: String,
     label: "Email / username to get in contact with announcement poster"
   },
-  userLevel: {
-    type: String,
-    label: "Level or community affiliation of member with in organization"
-  },
+
   timePosted: {
     type: Date,
     label: "Time the article was posted by the user"
@@ -49,4 +51,4 @@ Announcements.attachSchema(AnnouncementsSchema);
 
 
 /** Make the collection and schema available to other code. */
-export { Announcements, AnnouncementsSchema };
+export { Announcements, AnnouncementsSchema, AnnouncementFormSchema };

@@ -5,6 +5,19 @@ import { Tracker } from 'meteor/tracker';
 /** Define a Mongo collection to hold the data. */
 const UpcomingEvents = new Mongo.Collection('UpcomingEvents');
 
+const UpcomingEventFormSchema = new SimpleSchema({
+  title: String,
+  description: String,
+  eventType: {
+      type: String,
+      allowedValues: ['Podcast', 'Meeting', 'Livestream'],
+      defaultValue: 'Meeting',
+  },
+  eventOccuranceDate: Date,
+
+
+})
+
 /** Define a schema to specify the structure of each document in the collection. */
 const UpcomingEventschema = new SimpleSchema({
   title: {
@@ -37,6 +50,7 @@ const UpcomingEventschema = new SimpleSchema({
   community: {
     type: String,
     label: "School that event is associated",
+  
   },
   inviteList: {
     type: Array, 
@@ -53,6 +67,6 @@ UpcomingEvents.attachSchema(UpcomingEventschema);
 
 
 /** Make the collection and schema available to other code. */
-export { UpcomingEvents, UpcomingEventschema };
+export { UpcomingEvents, UpcomingEventschema, UpcomingEventFormSchema };
 
 

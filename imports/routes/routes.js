@@ -1,18 +1,23 @@
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { FlowRouterMeta } from "meteor/ostrio:flow-router-meta";
 import { mount } from "react-mounter";
-import Template from '../ui/utils/Template'
-import Dashboard from '../ui/pages/Landing/Dashboard'
-import CreateEvent from '../ui/pages/Events/CreateEvent'
+
+import Dashboard from '../ui/pages/Dashboard/Dashboard'
 import Resources from '../ui/pages/Resources/Resources'
-import NotFound from '../ui/utils/NotFound'
-import EditEvent from '../ui/pages/Events/EditEvent'
 import AboutPage from '../ui/pages/About/AboutPage'
 import CommunityPage from '../ui/pages/Community/CommunityPage'
-import ProfilePage from '../ui/pages/Profile/Profile'
 import EditAboutPage from '../ui/pages/About/EditAboutPage'
+import EditCommunityPage from '../ui/pages/Community/EditCommunityPage'
 import Navbar from '../ui/utils/Navbar'
 import Footer from '../ui/utils/Footer'
+import EditPage from '../ui/utils/EditPage'
+import ListPage from '../ui/utils/ListPage'
+import CreatePage from "../ui/utils/CreatePage";
+import DetailPage from "../ui/utils/DetailPage";
+
+
+import NotFound from '../ui/utils/NotFound'
+import Template from '../ui/utils/Template'
 import {setButtonState} from '../ui/utils/utils'
 
 FlowRouter.route("/", {
@@ -41,31 +46,19 @@ FlowRouter.route("/editAbout", {
   }
 })
 
-FlowRouter.route("/createEvent", {
-  name: "create-event",
-
+FlowRouter.route("/editCommunity", {
+  name: "edit-community",
+  
   action() {
     mount(Template, {
       Header: Navbar,
-      Content: CreateEvent,
+      Content: EditCommunityPage,
       Footer: Footer
 
-    });
-  },
-});
+    })
+  }
+})
 
-
-/* FlowRouter.route("/listEvents", {
-  name: "list-events",
-
-  action() {
-    mount(Template, {
-      Header: Navbar,
-      Content: ListEvents,
-
-    });
-  },
-}); */
 FlowRouter.route("/dashboard", {
   name: "dashboard",
 
@@ -99,29 +92,58 @@ FlowRouter.route("/resources", {
     });
   },
 });
-FlowRouter.route("/profile/:_id", {
-  name: "profile",
 
+FlowRouter.route("/edit/:component/:_id", {
+  name: "edit-page",
+  
   action(params) {
     mount(Template, {
       Header: Navbar,
-      Content: ProfilePage,
+      Content: EditPage,
       Footer: Footer
-    });
-  },
-});
 
-FlowRouter.route("/editEvent/:_id", {
-  name: "edit-event",
+    })
+  }
+})
 
+FlowRouter.route("/list/:component/", {
+  name: "list-page",
+  
   action(params) {
     mount(Template, {
       Header: Navbar,
-      Content: EditEvent,
+      Content: ListPage,
       Footer: Footer
-    });
-  },
-});
+
+    })
+  }
+})
+
+FlowRouter.route("/create/:component/", {
+  name: "create-page",
+  
+  action(params) {
+    mount(Template, {
+      Header: Navbar,
+      Content: CreatePage,
+      Footer: Footer
+
+    })
+  }
+})
+
+FlowRouter.route("/detail/:component/:_d", {
+  name: "detail-page",
+  
+  action(params) {
+    mount(Template, {
+      Header: Navbar,
+      Content: DetailPage,
+      Footer: Footer
+
+    })
+  }
+})
 
 FlowRouter.route("*", {
 

@@ -1,65 +1,117 @@
-import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import React, { useState } from 'react';
 import swal from 'sweetalert';
-import { AutoForm, ErrorsField, HiddenField, DateField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
-import {useTracker} from 'meteor/react-meteor-data'
-import PropTypes from 'prop-types';
-import 'uniforms-bridge-simple-schema-2'; 
-import { UpcomingEvents, UpcomingEventschema } from '../../../api/schema/UpcomingEvent';
-import { FlowRouter } from "meteor/ostrio:flow-router-extra";
+import { useTracker } from 'meteor/react-meteor-data'
+import 'uniforms-bridge-simple-schema-2';
+import { ChapterInfo, ChapterSchema } from '../../../api/schema/ChapterInfo';
+import { setButtonState, useAccount } from "../../utils/utils"
+import EditInitiatives from './EditInitiatives';
+import EditFundraising from './EditFundraising'
+import EditHistory from './EditHistory'
+import EditLeadership from './EditLeadership'
+import EditElectionDate from './EditElectionDate'
+const EditCommunityPage = () => {
 
-export default function UpdateEventForm(props) {
-  //const documentId = props._id;
- 
-  React.useEffect(() => {
-    Meteor.call("getCurrentCommunityData", (e, r) => {
-        console.log(e)
-        if (!e) {
-          
-        setCommunityData(r);
-        console.log(r)
+    const [state, setState] = useState("History");
+    const { user, isLoggingIn } = useAccount();
+    const [doc, setDoc] = useState(false)
+    const [_id, setId] = useState(false)
+
+    const toggleState = (state) => {
+        const allowedStates = ["History", "Initiatives", "Fundraising", 'ElectionDate', "Leadership"];
+        const stateStr = state;
+        if (allowedStates.includes(stateStr)) {
+          setState(stateStr);
         }
-  })
-})
+    };
 
-   const { doc, user } = useTracker(() => {
-    Meteor.subscribe('UpcomingEvents');
+    React.useEffect(() => {
+        Meteor.call("getCurrentCommunityData", (e, r) => {
+            console.log(e)
+            if (!e) {
+                console.log(r)
+                setDoc(r)
+                setId(r._id)
 
-    return ({
-      doc: UpcomingEvents.findOne(documentId),
-      user: Meteor.user(),
-    });
-  });
-    
-    
-function submit(data, formRef) {
-     const {title, description, eventType, eventOccuranceDate, _id} = data;
-     UpcomingEvents.update(_id, { $set: { title, description, eventType, eventOccuranceDate } }, (error) => (error ?
-        swal('Error', error.message, 'error') :
-        swal('Success', 'Item updated successfully', 'success')));
-    };  
+            }
+        })
+    }, [user])
 
 
 
-  
+
+    function submit(data, formRef) {
+      console.log(data)
+/*         const {initiatives, mission, organizationName, story} = data
+        ChapterInfo.update(_id, { $set: { initiatives, mission, organizationName, story} }, (error) => (error ?
+            swal('Error', error.message, 'error') :
+            swal('Success', 'Item updated successfully', 'success')));  */
+    };
+
+
+
+
+    if (state === "Leadership")  {
+        return (
+            <>
+            {doc ? 
+        <EditLeadership schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
+        : <div> Loading Data</div>
+            }
+            </>
+        )
+    }
+
+    if (state === "History")  {
+        return (
+            <>
+            {doc ? 
+  <EditHistory schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
+        : <div> Loading Data</div>
+    }
+    </>
+        )
+    }
+
+    if (state === "Initiatives") {
+        return (
+            <>
+            {doc ? 
+        <EditInitiatives schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
+        : <div> Loading Data</div>
+    }
+    </>
+        )
+    }
+
+    if (state === "ElectionDate") {
+      return (
+          <>
+          {doc ? 
+      <EditElectionDate schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
+      : <div> Loading Data</div>
+  }
+  </>
+      )
+  }
+
+  if (state === "Fundraising") {
     return (
-     
-         <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Event</Header>
-            <AutoForm schema={UpcomingEventschema} onSubmit={data => submit(data)} model={doc}>
-              <Segment>
-                <TextField name='title'/>
-                <TextField name='description'/>
-                <SelectField name='eventType'/>
-                <DateField name="eventOccuranceDate"/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' />
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid> 
-    );
-  };
+        <>
+        {doc ? 
+    <EditFundraising schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
+    : <div> Loading Data</div>
+}
+</>
+    )
+}
+
+   
+   
+      
+        
+      
+
+};
+
+export default EditCommunityPage

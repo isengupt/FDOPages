@@ -6,6 +6,10 @@ import {NewsUpdate} from '../../api/schema/NewsUpdate'
 import { Videos } from '../../api/schema/Video.js';
 import { About } from '../../api/schema/About.js';
 import {ChapterInfo} from '../../api/schema/ChapterInfo.js';
+import { LearnLinks } from '../../api/schema/LearnLinks.js';
+import { Interview } from '../../api/schema/Interviews.js';
+import { Blogs } from '../../api/schema/Blogs.js';
+import { ForumLink } from '../../api/schema/ForumLink.js';
 
 //Functions that add initial data from config file on meteor startup
 // If meteor already has data in database, run meteor reset and then run meteor npm run start again
@@ -46,6 +50,26 @@ function addAbout(data) {
 function addCommunites(data) {
     console.log(data)
     ChapterInfo.insert(data);
+}
+
+function addLearnLinks(data) {
+    console.log(data)
+    LearnLinks.insert(data);
+}
+
+function addBlogs(data) {
+    console.log(data)
+    Blogs.insert(data);
+}
+
+function addInterviews(data) {
+    console.log(data)
+    Interview.insert(data);
+}
+
+function addForums(data) {
+    console.log(data)
+    ForumLink.insert(data);
 }
 /** Initialize the collection if empty. */
 if (UpcomingEvents.find().count() === 0) {
@@ -95,4 +119,36 @@ if(ChapterInfo.find().count() === 0) {
         Meteor.settings.defaultCommunites.map(data => addCommunites(data));
     }
 }
+
+if(LearnLinks.find().count() === 0) {
+    if(Meteor.settings.defaultLinks) {
+        console.log('Creating default learn links.');
+        Meteor.settings.defaultLinks.map(data => addLearnLinks(data));
+    }
+}
+
+if(Blogs.find().count() === 0) {
+    if(Meteor.settings.defaultBlogs) {
+        console.log('Creating default blogs.');
+        Meteor.settings.defaultBlogs.map(data => addBlogs(data));
+    }
+}
+
+if(Interview.find().count() === 0) {
+    if(Meteor.settings.defaultInterviews) {
+        console.log('Creating default interviews.');
+        Meteor.settings.defaultInterviews.map(data => addInterviews(data));
+    }
+}
+
+
+if(ForumLink.find().count() === 0) {
+    if(Meteor.settings.defaultForumLink) {
+        console.log('Creating default forums.');
+        Meteor.settings.defaultForumLink.map(data => addForums(data));
+    }
+}
+
+
+
 

@@ -24,6 +24,26 @@ const Interests = new SimpleSchema({
         label: "Misc fun facts about member"
     }
 });
+const ProfileFormSchema = new SimpleSchema({
+  email: {
+    type: String,
+    
+  },
+  aboutMe: {
+    type: String,
+    
+  },
+
+  gradYear: {
+    type: Date,
+   
+  },
+  interests: {
+    type: Interests,
+    
+  },
+
+})
 
 
 const ProfileSchema = new SimpleSchema({
@@ -62,5 +82,5 @@ Profile.attachSchema(ProfileSchema);
 
 
 /** Make the collection and schema available to other code. */
-export { Profile, ProfileSchema };
+export { Profile, ProfileSchema, ProfileFormSchema };
 
