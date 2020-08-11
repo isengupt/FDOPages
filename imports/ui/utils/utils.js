@@ -14,6 +14,8 @@ import { ForumLink, ForumSchema, ForumFormSchema } from "../../api/schema/ForumL
 import { Interview, InterviewSchema, InterviewFormSchema } from '../../api/schema/Interviews'
 import { Videos, VideoSchema, VideoFormSchema } from '../../api/schema/Video'
 import { LearnLinks, LearnLinksSchema, LearnFormSchema } from '../../api/schema/LearnLinks'
+import { AboutSchema, About } from "../../api/schema/About";
+import { ChapterSchema } from "../../api/schema/ChapterInfo";
 
 export const useAccount = () =>
   useTracker(() => {
@@ -60,162 +62,310 @@ function checkList(listInfo) {
 
 export const DetailComponents = {
   BlogDetail: function BlogDetail(props) {
-   return <div>
-        {props.detailInfo ? 
-          <div>
-            <div> Title {props.detailInfo.title}</div>
-            <div> Id {props.detailInfo._id}</div>
-            <div> Content {props.detailInfo.content}</div>
-            <div> Image {props.detailInfo.image}</div>
-            <div> Community {props.detailInfo.community}</div>
-            <div> User {props.detailInfo.user}</div>
-            <a href={`/edit/blog/${props.detailInfo._id}`}>Edit Event</a>
-          </div>
-        
-          : 
-          <div>
-            No Item
+    return <div>
+      {props.detailInfo ?
+        <div>
+          <div> Title {props.detailInfo.title}</div>
+          <div> Id {props.detailInfo._id}</div>
+          <div> Content {props.detailInfo.content}</div>
+          <div> Image {props.detailInfo.image}</div>
+          <div> Community {props.detailInfo.community}</div>
+          <div> User {props.detailInfo.user}</div>
+          <a href={`/edit/blog/${props.detailInfo._id}`}>Edit Event</a>
+        </div>
+
+        :
+        <div>
+          No Item
       </div>
-    }
-   </div>
+      }
+    </div>
   },
   AnnouncementDetail: function AnnouncementDetail(props) {
     return <div>
-    {props.detailInfo ? 
-          <div key={props.detailInfo._id}>
-            <div>Title: {props.detailInfo.title}</div>
-            <div>Content: {props.detailInfo.content}</div>
-            <div>Contact: {props.detailInfo.contact}</div>
-            <div>User: {props.detailInfo.user}</div>
-            <div>User: {props.detailInfo.community}</div>
-            <a href={`/profile/${props.detailInfo.user}`}>Visit Profie</a>
-            <a href={`/edit/announcement/${props.detailInfo._id}`}>Edit Announcement</a>
-            <br></br>
+      {props.detailInfo ?
+        <div key={props.detailInfo._id}>
+          <div>Title: {props.detailInfo.title}</div>
+          <div>Content: {props.detailInfo.content}</div>
+          <div>Contact: {props.detailInfo.contact}</div>
+          <div>User: {props.detailInfo.user}</div>
+          <div>User: {props.detailInfo.community}</div>
+          <a href={`/profile/${props.detailInfo.user}`}>Visit Profie</a>
+          <a href={`/edit/announcement/${props.detailInfo._id}`}>Edit Announcement</a>
+          <br></br>
 
-          </div>
-  : 
-  <div>
-    No Item
+        </div>
+        :
+        <div>
+          No Item
 </div>
-}
-</div>
+      }
+    </div>
   },
   EventDetail: function EventDetail(props) {
     return <div>
-    {props.detailInfo ? 
-          <div key={props.detailInfo._id}>
-            <div>Title: {props.detailInfo.title}</div>
-            <div>Description: {props.detailInfo.description}</div>
-            <div>EventType: {props.detailInfo.eventType}</div>
-            <div>Owner: {props.detailInfo.owner}</div>
-            <a href={`/profile/${props.detailInfo.owner}`}>Visit Profie</a>
-            <div>Community: {props.detailInfo.community}</div>
-            <a href={`/edit/event/${props.detailInfo._id}`}>Edit Event</a>
-            <br></br>
-       
-            </div>
-  : 
-  <div>
-    No Item
+      {props.detailInfo ?
+        <div key={props.detailInfo._id}>
+          <div>Title: {props.detailInfo.title}</div>
+          <div>Description: {props.detailInfo.description}</div>
+          <div>EventType: {props.detailInfo.eventType}</div>
+          <div>Owner: {props.detailInfo.owner}</div>
+          <a href={`/profile/${props.detailInfo.owner}`}>Visit Profie</a>
+          <div>Community: {props.detailInfo.community}</div>
+          <a href={`/edit/event/${props.detailInfo._id}`}>Edit Event</a>
+          <br></br>
+
+        </div>
+        :
+        <div>
+          No Item
 </div>
-}
-</div>
+      }
+    </div>
   },
 
   NewsUpdateDetail: function NewsUpdateDetail(props) {
     return <div>
-    {props.detailInfo ? 
-          <div key={props.detailInfo._id}>
-            <div>Title: {props.detailInfo.title}</div>
-            <div>Description: {props.detailInfo.description}</div>
-            <div>User: {props.detailInfo.newsLink}</div>
-            <div>User: {props.detailInfo.user}</div>
-            <a href={`/profile/${props.detailInfo.user}`}>Visit Profie</a>
-            <div>Community: {props.detailInfo.community}</div>
-            <a href={`/edit/newsupdate/${props.detailInfo._id}`}>Edit News Update</a>
-            <br></br>
-            </div>
-  : 
-  <div>
-    No Item
+      {props.detailInfo ?
+        <div key={props.detailInfo._id}>
+          <div>Title: {props.detailInfo.title}</div>
+          <div>Description: {props.detailInfo.description}</div>
+          <div>User: {props.detailInfo.newsLink}</div>
+          <div>User: {props.detailInfo.user}</div>
+          <a href={`/profile/${props.detailInfo.user}`}>Visit Profie</a>
+          <div>Community: {props.detailInfo.community}</div>
+          <a href={`/edit/newsupdate/${props.detailInfo._id}`}>Edit News Update</a>
+          <br></br>
+        </div>
+        :
+        <div>
+          No Item
 </div>
-}
-</div>
+      }
+    </div>
   },
   ForumDetail: function ForumDetail(props) {
     return <div>
-    {props.detailInfo ? 
-          <div>
-            <div>{props.detailInfo._id}</div>
-            <div>{props.detailInfo.title}</div>
-            <div>{props.detailInfo.voteCount}</div>
-            <div>{props.detailInfo.user}</div>
-            <div>{props.detailInfo.community}</div>
-            <a href={`/edit/forum/${props.detailInfo._id}`}>Edit Forum</a>
-            </div>
-  : 
-  <div>
-    No Item
+      {props.detailInfo ?
+        <div>
+          <div>{props.detailInfo._id}</div>
+          <div>{props.detailInfo.title}</div>
+          <div>{props.detailInfo.voteCount}</div>
+          <div>{props.detailInfo.user}</div>
+          <div>{props.detailInfo.community}</div>
+          <a href={`/edit/forum/${props.detailInfo._id}`}>Edit Forum</a>
+        </div>
+        :
+        <div>
+          No Item
 </div>
-}
-</div>
+      }
+    </div>
   },
   InterviewDetail: function InterviewDetail(props) {
     return <div>
-    {props.detailInfo ? 
-          <div>
-            <div> Id{props.detailInfo._id}</div>
-            <div> Title{props.detailInfo.title}</div>
-            <div> Description {props.detailInfo.description}</div>
-            <div> Community {props.detailInfo.community}</div>
-            <div> user {props.detailInfo.user}</div>
-            <a href={`/edit/interview/${props.detailInfo._id}`}>Edit Interview</a>
-            </div>
-  : 
-  <div>
-    No Item
+      {props.detailInfo ?
+        <div>
+          <div> Id{props.detailInfo._id}</div>
+          <div> Title{props.detailInfo.title}</div>
+          <div> Description {props.detailInfo.description}</div>
+          <div> Community {props.detailInfo.community}</div>
+          <div> user {props.detailInfo.user}</div>
+          <a href={`/edit/interview/${props.detailInfo._id}`}>Edit Interview</a>
+        </div>
+        :
+        <div>
+          No Item
 </div>
-}
-</div>
+      }
+    </div>
   },
 
   VideoDetail: function VideoDetail(props) {
     return <div>
-    {props.detailInfo ? 
-          <div>
-            <div>{props.detailInfo._id}</div>
-            <div>{props.detailInfo.title}</div>
-            <div>{props.detailInfo.videoType}</div>
-            <div>{props.detailInfo.videoInput}</div>
-            <a href={`/edit/video/${props.detailInfo._id}`}>Edit Interview</a>
-            </div>
-  : 
-  <div>
-    No Item
+      {props.detailInfo ?
+        <div>
+          <div>{props.detailInfo._id}</div>
+          <div>{props.detailInfo.title}</div>
+          <div>{props.detailInfo.videoType}</div>
+          <div>{props.detailInfo.videoInput}</div>
+          <a href={`/edit/video/${props.detailInfo._id}`}>Edit Interview</a>
+        </div>
+        :
+        <div>
+          No Item
 </div>
-}
-</div>
+      }
+    </div>
   },
   LearnLinksDetail: function LearnLinksDetail(props) {
     return <div>
-    {props.detailInfo ? 
-          <div>
+      {props.detailInfo ?
+        <div>
 
-            <div> Id{props.detailInfo._id}</div>
-            <div> Title {props.detailInfo.title}</div>
-            <div> Description {props.detailInfo.description}</div>
-            <div> Link {props.detailInfo.linkType}</div>
-            <div> Owner {props.detailInfo.owner}</div>
-            <div> Community {props.detailInfo.community}</div>
-            <a href={`/edit/learnlink/${props.detailInfo._id}`}>Edit Learning Resource</a>
+          <div> Id{props.detailInfo._id}</div>
+          <div> Title {props.detailInfo.title}</div>
+          <div> Description {props.detailInfo.description}</div>
+          <div> Link {props.detailInfo.linkType}</div>
+          <div> Owner {props.detailInfo.owner}</div>
+          <div> Community {props.detailInfo.community}</div>
+          <a href={`/edit/learnlink/${props.detailInfo._id}`}>Edit Learning Resource</a>
+        </div>
+        :
+        <div>
+          No Item
+</div>
+      }
+    </div>
+
+  },
+  StoryDetail: function StoryDetail(props) {
+    return (
+      <div>
+        {
+          props.detailInfo ?
+            <>
+              <div>{props.detailInfo.title}</div>
+              <div>{props.detailInfo.story}</div>
+              <img className="story__image" src={props.detailInfo.founderImage} alt="" />
+              <div>{props.detailInfo.Name}</div>
+            </>
+            :
+            <div>
+              No Item
+</div>
+        }
+      </div>
+    )
+  },
+
+  MissionDetail: function MissionDetail(props) {
+    return (
+      <div>
+        {
+          props.detailInfo ?
+            <>
+              <div>{props.detailInfo.mission}</div>
+              <div>{props.detailInfo.vision}</div>
+            </>
+            :
+            <div>
+              No Item
+   </div>
+        }
+      </div>
+    )
+  },
+  InitiativesDetail: function InitiativesDetail(props) {
+    return (
+      <div>
+        {
+          props.detailInfo ?
+              <div>Initiatvies</div>
+            :
+            <div>
+              No Item
+ </div>
+        }
+      </div>
+    )
+  },
+  ImageGalleryDetail: function ImageGalleryDetail(props) {
+    return (
+      <div>
+        {
+          props.detailInfo ?
+            <div>ImageGallery Page</div>
+            :
+            <div>
+              No Item
+</div>
+
+        }
+      </div>
+    )
+  },
+  LeadershipDetail: function LeadershipDetail(props) {
+    return (
+      <div>
+        {
+          props.detailInfo ?
+            <div>LeadershipDetail</div>
+            :
+            <div>
+              No Item
+ </div>
+
+        }
+      </div>
+    )
+  },
+  HistoryDetail: function HistoryDetail(props) {
+    return (
+      <div>
+        {
+          props.detailInfo ?
+            <>
+              <img className="advisor__image" src={props.detailInfo.founderImage} alt="founder-image" />
+              <div>{props.detailInfo.founderName}</div>
+              <div>{props.detailInfo.founderStory}</div>
+              <div>{props.detailInfo.founderQuote}</div>
+              <div>{props.detailInfo.foundProfileLink}</div>
+              <div>{props.detailInfo.founderProfileLink}</div>
+            </>
+            :
+            <div>
+              No Item
+ </div>
+
+        }
+      </div>
+    )
+  },
+  FundraisingDetail: function FundraisingDetail(props) {
+    return (
+      <div>
+        {
+          props.detailInfo ?
+            <>
+              <div>Fundrasing Info</div>
+              <div>{props.detailInfo.fundName}</div>
+              <div>{props.detailInfo.fundLink}</div>
+            </>
+            :
+            <div>
+              No Item
+ </div>
+
+        }
+      </div>
+    )
+  },
+  AdvisorDetail: function AdvisorDetail(props) {
+    return (
+      <div>
+        {
+          props.detailInfo ?
+            <div className="advisor__container">
+              <div className="advisor__container__left">
+                <img className="advisor__image" src={props.detailInfo.advisorImage} />
+              </div>
+              <div className="advisor__container__right">
+                <div className="advisor__item__margin advisor__name">{props.detailInfo.advisorName}</div>
+                <div className="advisor__item__margin advisor__biography">{props.detailInfo.advisorBiography}</div>
+                <div className="advisor__item__margin advisor__quote"><i>{props.detailInfo.advisorQuote}</i></div>
+                <a className="advisor__item__margin advisor__contact" href={`/profile/${props.detailInfo.advisorProfileLink}`}>Get in Contact</a>
+              </div>
+
             </div>
-  : 
-  <div>
-    No Item
-</div>
-}
-</div>
+            :
+            <div>
+              No Item
+ </div>
 
+        }
+      </div>
+    )
   }
 }
 
@@ -830,6 +980,201 @@ export const EditComponents = {
     </Grid>;
 
   },
+  InitiativesEdit: function InitiativesEdit(props) {
+    return (
+      <Grid container centered>
+        <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Initiatives</Header>
+          <AutoForm schema={props.schema} onSubmit={data => props.submit(data)} model={props.model} >
+            <Segment>
+              <HiddenField name="organizationName" />
+              <ListField name="initiatives.organizationInitiatives">
+                <TextField name="$" />
+
+              </ListField>
+
+              <SubmitField value='Submit' />
+
+              <ErrorsField />
+            </Segment>
+          </AutoForm>
+
+        </Grid.Column>
+      </Grid>
+    )
+  },
+  MissionsEdit: function MissionsEdit(props) {
+
+    return (
+      <Grid container centered>
+
+        <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Mission</Header>
+          <AutoForm schema={props.schema} onSubmit={data => props.submit(data)} model={props.model} >
+            <Segment>
+
+
+              <HiddenField name="organizationName" />
+
+
+              <NestField name="mission">
+                <TextField name="mission" />
+                <TextField name="vision" />
+
+              </NestField>
+
+              <SubmitField value='Submit' />
+
+              <ErrorsField />
+            </Segment>
+          </AutoForm>
+        </Grid.Column>
+      </Grid>
+    )
+  },
+  StoryEdit: function StoryEdit(props) {
+    return (
+      <Grid container centered>
+
+
+        <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Story</Header>
+          <AutoForm schema={props.schema} onSubmit={data => props.submit(data)} model={props.model} >
+            <Segment>
+
+
+              <HiddenField name="organizationName" />
+
+
+
+              <NestField name="story">
+                <TextField name="founderImage" />
+                <TextField name="founderName" />
+                <TextField name="story" />
+                <TextField name="title" />
+
+              </NestField>
+
+              <SubmitField value='Submit' />
+
+              <ErrorsField />
+            </Segment>
+          </AutoForm>
+        </Grid.Column>
+      </Grid>
+    )
+  },
+  ElectionDateEdit: function ElectionDateEdit(props) {
+    return (
+   <Grid container centered>
+
+    <Grid.Column>
+        <Header as="h2" textAlign="center">Edit Election</Header>
+        <AutoForm schema={props.schema} onSubmit={data => props.submit(data)} model={props.model} >
+                    <Segment>
+                    <DateField name="electionDate"/>
+
+                        <SubmitField value='Submit' />
+
+                        <ErrorsField />
+                    </Segment>
+                </AutoForm>
+                </Grid.Column>
+    </Grid>
+    )
+  },
+  FundraisingEdit: function FundraisingEdit(props) {
+    return (
+      <Grid container centered>
+
+      <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Fundraising</Header>
+          <AutoForm schema={props.schema} onSubmit={data => props.submit(data)} model={props.model} >
+                    <Segment>
+                        <NestField name="fundraising">
+                                <TextField name="fundName" />
+                                <TextField name="fundLink" />
+
+                            </NestField>
+
+                        <SubmitField value='Submit' />
+
+                        <ErrorsField />
+                    </Segment>
+                </AutoForm>
+                  </Grid.Column>
+      </Grid>
+    )
+  },
+  HistoryEdit: function HistoryEdit(props) {
+    return (
+      <Grid container centered>
+
+      <Grid.Column>
+          <Header as="h2" textAlign="center">Edit History</Header>
+          <AutoForm schema={props.schema} onSubmit={data => props.submit(data)} model={props.model} >
+                        <Segment>
+                            <NestField name="history">
+                                <TextField name="founderImage" />
+                                <TextField name="founderName" />
+                                <TextField name="founderProfileLink" />
+                                <TextField name="founderQuote" />
+                                <TextField name="founderStory" />
+
+                            </NestField>
+
+                            <SubmitField value='Submit' />
+
+                            <ErrorsField />
+                        </Segment>
+                    </AutoForm>
+                  </Grid.Column>
+      </Grid>
+    )
+  },
+  ChapterInitiativesEdit: function ChapterInitiativesEdit(props) {
+    return (
+      <Grid container centered>
+
+      <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Chapter Initiatives</Header>
+          <AutoForm schema={props.schema} onSubmit={data => props.submit(data)} model={props.model} >
+                    <Segment>
+
+                        <ListField name="initiatives.chapterInitiatives">               
+                                    <TextField name="$" />          
+                        </ListField>
+
+                        <SubmitField value='Submit' />
+
+                        <ErrorsField />
+                    </Segment>
+                </AutoForm>
+                  </Grid.Column>
+      </Grid>
+    )
+  },
+  LeadershipEdit: function LeadershipEdit(props) {
+    return (
+      <Grid container centered>
+
+      <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Chapter Initiatives</Header>
+          <AutoForm schema={props.schema} onSubmit={data => props.submit(data)} model={props.model} >
+                    <Segment>
+                    <ListField name="leadership">                     
+                      <TextField name="$" />                 
+                    </ListField>
+
+                        <SubmitField value='Submit' />
+
+                        <ErrorsField />
+                    </Segment>
+                </AutoForm>
+                  </Grid.Column>
+      </Grid>
+    )
+  }
 
 
 }
@@ -1048,6 +1393,18 @@ export const EditFunctions = {
     Videos.update(_id, { $set: { title, description, videoType } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'News update updated successfully', 'success')));
+  },
+  aboutEdit: function aboutEdit(data) {
+    const { initiatives, mission, organizationName, story, _id } = data
+    About.update(_id, { $set: { initiatives, mission, organizationName, story } }, (error) => (error ?
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Item updated successfully', 'success')));
+  },
+  chapterEdit: function chapterEdit(data) {
+    const {history, leadership, fundraising, electiondate, initiatives, _id} = data
+    ChapterInfo.update(_id, { $set: { history, leadership, fundraising, electiondate, initiatives} }, (error) => (error ?
+        swal('Error', error.message, 'error') :
+        swal('Success', 'Item updated successfully', 'success')));
   }
 
 }
@@ -1072,15 +1429,31 @@ export function EditPicker(props) {
       return <EditComponents.VideoEdit schema={VideoSchema} submit={EditFunctions.videoEdit} model={props.model} />;
     case "interview":
       return <EditComponents.InterviewEdit schema={InterviewSchema} submit={EditFunctions.interviewEdit} model={props.model} />;
+    case "mission":
+      return <EditComponents.MissionsEdit schema={AboutSchema} submit={EditFunctions.aboutEdit} model={props.model} />;
+    case "story":
+      return <EditComponents.StoryEdit schema={AboutSchema} submit={EditFunctions.aboutEdit} model={props.model} />;
+    case "initiatives":
+      return <EditComponents.InitiativesEdit schema={AboutSchema} submit={EditFunctions.aboutEdit} model={props.model} />;
+    case "chapterinitiatives":
+      return <EditComponents.ChapterInitiativesEdit schema={ChapterSchema} submit={EditFunctions.chapterEdit} model={props.model} />;
+    case "history":
+      return <EditComponents.HistoryEdit schema={ChapterSchema} submit={EditFunctions.chapterEdit} model={props.model} />;
+    case "electiondate":
+      return <EditComponents.ElectionDateEdit schema={ChapterSchema} submit={EditFunctions.chapterEdit} model={props.model} />;
+    case "fundraising":
+      return <EditComponents.FundraisingEdit schema={ChapterSchema} submit={EditFunctions.chapterEdit} model={props.model} />;
+    case "leadership":
+      return <EditComponents.LeadershipEdit schema={ChapterSchema} submit={EditFunctions.chapterEdit} model={props.model} />; 
   }
 }
 
 export function DetailPicker(props) {
   switch (props.toggleState) {
     case "event":
-      return <DetailComponents.UpcomingEventsDetail  detailInfo={props.detailInfo} />;
+      return <DetailComponents.UpcomingEventsDetail detailInfo={props.detailInfo} />;
     case "blog":
-      return <DetailComponents.BlogDetail  detailInfo={props.detailInfo} />;
+      return <DetailComponents.BlogDetail detailInfo={props.detailInfo} />;
     case "announcement":
       return <DetailComponents.AnnouncementDetail detailInfo={props.detailInfo} />;
     case "profile":
@@ -1090,7 +1463,7 @@ export function DetailPicker(props) {
     case "forum":
       return <DetailComponents.ForumDetail detailInfo={props.detailInfo} />;
     case "learnLink":
-      return <DetailComponents.LearnLinksDetail  detailInfo={props.detailInfo} />;
+      return <DetailComponents.LearnLinksDetail detailInfo={props.detailInfo} />;
     case "video":
       return <DetailComponents.VideoDetail detailInfo={props.detailInfo} />;
     case "interview":

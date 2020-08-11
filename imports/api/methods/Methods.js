@@ -106,8 +106,7 @@ Meteor.methods({
 
             let user = Meteor.users.findOne({ '_id': this.userId })
             let email = user.username
-            console.log(email)
-            console.log(Blogs.findOne(_id).user)
+
 
             function editData(doc, toggleState) {
                 this.doc = doc
@@ -171,8 +170,8 @@ Meteor.methods({
                     } else {
                         return "Not authorized"
                     }
-                case "learnLink":
-                    if (email === LearnLinks.findOne(_id).user) {
+                case "learnlink":
+                    if (email === LearnLinks.findOne(_id).owner) {
                         var editLearnLinks = new editData(LearnLinks.findOne(_id), "learnLink")
                         return editLearnLinks
                     } else {

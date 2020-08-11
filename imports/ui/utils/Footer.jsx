@@ -1,7 +1,7 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
 
-import { useAccount } from "../utils/utils";
+import { useAccount } from "./utils";
 
 const Footer = () => {
   const { user } = useAccount();

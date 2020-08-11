@@ -1,7 +1,7 @@
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { FlowRouterMeta } from "meteor/ostrio:flow-router-meta";
 import { mount } from "react-mounter";
-
+//const Dashboard = require('./ui/pages/Dashboard/Dashboard').default
 import Dashboard from '../ui/pages/Dashboard/Dashboard'
 import Resources from '../ui/pages/Resources/Resources'
 import AboutPage from '../ui/pages/About/AboutPage'
@@ -59,8 +59,8 @@ FlowRouter.route("/editCommunity", {
   }
 })
 
-FlowRouter.route("/dashboard", {
-  name: "dashboard",
+FlowRouter.route("/dashboardpage", {
+  name: "dashboard-page",
 
   action() {
     mount(Template, {
@@ -70,6 +70,7 @@ FlowRouter.route("/dashboard", {
     });
   },
 });
+
 FlowRouter.route("/community", {
   name: "community",
 

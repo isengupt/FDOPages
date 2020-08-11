@@ -21,7 +21,7 @@ const ActionButton = ({ state }) => {
         FlowRouter.go("/community")
         break;
       case "dashboard":
-        FlowRouter.go("/dashboard");
+        FlowRouter.go("/dashboardpage");
         break;
       case "edit-community":
         FlowRouter.go("/editCommunity")

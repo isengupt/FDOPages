@@ -1,116 +1,119 @@
 import React, { useState } from 'react';
-import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import { useTracker } from 'meteor/react-meteor-data'
-import 'uniforms-bridge-simple-schema-2';
-import { ChapterInfo, ChapterSchema } from '../../../api/schema/ChapterInfo';
-import { setButtonState, useAccount } from "../../utils/utils"
-import EditInitiatives from './EditInitiatives';
-import EditFundraising from './EditFundraising'
-import EditHistory from './EditHistory'
-import EditLeadership from './EditLeadership'
-import EditElectionDate from './EditElectionDate'
+import { EditPicker, useAccount } from "../../utils/utils"
+import { set } from 'react-ga';
+
 const EditCommunityPage = () => {
 
-    const [state, setState] = useState("History");
-    const { user, isLoggingIn } = useAccount();
-    const [doc, setDoc] = useState(false)
-    const [_id, setId] = useState(false)
+    const [toggleState, setToggleState] = useState("history");
+    const { user } = useAccount();
+    const [model, setModel] = useState(false)
 
-    const toggleState = (state) => {
-        const allowedStates = ["History", "Initiatives", "Fundraising", 'ElectionDate', "Leadership"];
+
+
+
+    const toggleStatePick = (state) => {
+        const allowedStates = ["history", "chapterinitiatives", "fundraising", 'electiondate', 'leadership'];
         const stateStr = state;
         if (allowedStates.includes(stateStr)) {
-          setState(stateStr);
+            setToggleState(stateStr);
         }
-    };
+    }
 
     React.useEffect(() => {
         Meteor.call("getCurrentCommunityData", (e, r) => {
-            console.log(e)
+
             if (!e) {
                 console.log(r)
-                setDoc(r)
-                setId(r._id)
+                setModel(r)
+
+
 
             }
         })
     }, [user])
 
-
-
-
-    function submit(data, formRef) {
-      console.log(data)
-/*         const {initiatives, mission, organizationName, story} = data
-        ChapterInfo.update(_id, { $set: { initiatives, mission, organizationName, story} }, (error) => (error ?
-            swal('Error', error.message, 'error') :
-            swal('Success', 'Item updated successfully', 'success')));  */
-    };
-
-
-
-
-    if (state === "Leadership")  {
-        return (
-            <>
-            {doc ? 
-        <EditLeadership schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
-        : <div> Loading Data</div>
-            }
-            </>
-        )
-    }
-
-    if (state === "History")  {
-        return (
-            <>
-            {doc ? 
-  <EditHistory schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
-        : <div> Loading Data</div>
-    }
-    </>
-        )
-    }
-
-    if (state === "Initiatives") {
-        return (
-            <>
-            {doc ? 
-        <EditInitiatives schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
-        : <div> Loading Data</div>
-    }
-    </>
-        )
-    }
-
-    if (state === "ElectionDate") {
-      return (
-          <>
-          {doc ? 
-      <EditElectionDate schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
-      : <div> Loading Data</div>
-  }
-  </>
-      )
-  }
-
-  if (state === "Fundraising") {
     return (
-        <>
-        {doc ? 
-    <EditFundraising schema = {ChapterSchema} submit={submit} model={doc} toggleState={toggleState}/>
-    : <div> Loading Data</div>
-}
-</>
-    )
-}
+        <div>
+            <div>
 
-   
-   
-      
-        
-      
+                <a
+                    onClick={(event) =>
+                        event.stopPropagation() ||
+                        event.preventDefault() ||
+                        toggleStatePick("history")
+                    }
+                    className="information-link"
+                >
+                    History
+</a>
+            </div>
+            <div>
+
+                <a
+                    onClick={(event) =>
+                        event.stopPropagation() ||
+                        event.preventDefault() ||
+                        toggleStatePick("electiondata")
+                    }
+                    className="information-link"
+                >
+                    Election Date
+</a>
+            </div>
+            <div>
+
+                <a
+                    onClick={(event) =>
+                        event.stopPropagation() ||
+                        event.preventDefault() ||
+                        toggleStatePick("chapterinitiatives")
+                    }
+                    className="information-link"
+                >
+                    Initiatives
+</a>
+            </div>
+            <div>
+
+                <a
+                    onClick={(event) =>
+                        event.stopPropagation() ||
+                        event.preventDefault() ||
+                        toggleStatePick("fundraising")
+                    }
+                    className="information-link"
+                >
+                    Fundraising
+</a>
+            </div>
+            <div>
+
+                <a
+                    onClick={(event) =>
+                        event.stopPropagation() ||
+                        event.preventDefault() ||
+                        toggleStatePick("leadership")
+                    }
+                    className="information-link"
+                >
+                    Leadership
+</a>
+            </div>
+            {toggleState ?
+                <div>
+                    <EditPicker toggleState={toggleState} model={model} />
+                </div> :
+                <div>
+                    Loading
+</div>
+            }
+
+        </div>
+    )
+
+
+
 
 };
 

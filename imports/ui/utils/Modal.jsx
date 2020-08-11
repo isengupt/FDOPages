@@ -6,17 +6,17 @@ Modal.defaultStyles = {};
 
 const customStyles = {
   content: {
-    top: "55%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    padding: 0,
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
   },
 };
-// Modal.defaultStyles.overlay.backgroundColor = "rgba(255,255,255,0.7)";
-// Modal.defaultStyles.overlay.zIndex = "1000";
+ //Modal.defaultStyles.overlay.backgroundColor = "rgba(255,255,255,0.7)";
+ //Modal.defaultStyles.overlay.zIndex = "1000";
+
 
 const ModalComponent = ({
   children,
@@ -37,7 +37,7 @@ const ModalComponent = ({
     <Modal
       isOpen={isOpen}
       onRequestClose={closeModal}
-      // style={customStyles}
+      style={customStyles}
       contentLabel={label}
     >
       {canClose ? (

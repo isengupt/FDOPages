@@ -4,16 +4,19 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { FlowRouter } from "meteor/ostrio:flow-router-extra"
 import Modal from '../utils/Modal'
-import LoginSection from '../pages/Landing/LoginSection'
+import Modal2 from "../utils/Modal2";
+import useModal from './useModal';
+import LoginSection from '../pages/Dashboard/LoginSection'
 import { Roles } from 'meteor/alanning:roles';
 import './Navbar.css'
+
 import ActionButton from "./ActionButton";
 import { setButtonState, useAccount } from "./utils";
 
 const Navbar = () => {
-
-  const [showLogin, setShowLogin] = useState(false); // manage, import
-  const [showModal, setShowModal] = useState(false); // manage, import
+  const {isShowing, toggle} = useModal();
+  const [showLogin, setShowLogin] = useState(false); 
+  const [showModal, setShowModal] = useState(false); 
   const { user, userId, isLoggingIn} = useAccount();
   let subtoken;
   
@@ -75,7 +78,9 @@ const Navbar = () => {
         <div className="navbar-buttons">
                   { showLogin ?
                     <>
-                      <Modal
+
+                    
+                     {/*  <Modal
                         isOpen={showModal}
                         closeModal={() => {
                           setShowModal(false);
@@ -85,16 +90,24 @@ const Navbar = () => {
                         }}
                       >
                         <LoginSection />
-                      </Modal>
-                      <button
+                      </Modal> */}
+                    {/*   <button
                         aria-current="page"
                         className="button w-button w--current"
                         onClick={(event) =>
                           event.preventDefault() || setShowModal(true)
                         }
-                      >
+                      > */}
+                       <button type="button" className="button-default" onClick={
+                          toggle 
+                       }>
                         Login
                       </button>
+                      <Modal2
+        isShowing={isShowing}
+        hide={toggle}
+  
+      ><LoginSection/></Modal2>
                     </>
                     :
                     <ActionButton />

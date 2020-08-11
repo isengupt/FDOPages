@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Initiatives from './components/Initiatives'
-import Mission from './components/Mission'
-import Story from './components/Story'
-import ImageGallery from './components/ImageGallery'
-import { useTracker } from 'meteor/react-meteor-data';
-import { About } from '../../../api/schema/About';
-import { setButtonState, useAccount } from "../../utils/utils"
+import { DetailComponents,  setButtonState, useAccount } from "../../utils/utils"
 
 
 
 const AboutPage = () => {
   const { user, isLoggingIn } = useAccount();
   const [aboutData, setAboutData] = useState(false);
-  const [editable, setEditable] = useState(false);
+ 
 
 
   useEffect(() => {
@@ -26,7 +20,7 @@ const AboutPage = () => {
 
   useEffect(() => {
     Meteor.call("setEditable", "about", (e, r) => {
-      console.log(e)
+
       if (!e) {
 
         if(r) {
@@ -44,10 +38,11 @@ const AboutPage = () => {
     <div>
       {aboutData ?
         <div className="about-container">
-          <Initiatives user={user} initiatives={aboutData.initiatives}/>
-          <Mission user={user} mission={aboutData.mission}/>
-          <Story user={user} story={aboutData.story}/>
-          <ImageGallery user={user} images={aboutData.images}/>
+
+         <DetailComponents.ImageGalleryDetail detailInfo={aboutData.images}/>
+          <DetailComponents.StoryDetail detailInfo={aboutData.story}/>
+          <DetailComponents.MissionDetail detailInfo={aboutData.mission}/>
+          <DetailComponents.InitiativesDetail detailInfo={aboutData.initiatives}/> 
         </div>
         :
         <div>Loading the information</div>

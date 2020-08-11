@@ -63,9 +63,9 @@ Meteor.publish('Dashboard', function publish(){
     
     if (Roles.userIsInRole(this.userId, 'super-admin')) {
       return [
-        Announcements.find({}),
-        NewsUpdate.find({}),
-        UpcomingEvents.find({})
+        Announcements.find({sort: {createdAt: -1}, limit: dl}),
+        NewsUpdate.find({sort: {createdAt: -1}, limit: dl}),
+        UpcomingEvents.find({sort: {createdAt: -1}, limit: dl})
       ]
     }  
     else {
@@ -73,9 +73,9 @@ Meteor.publish('Dashboard', function publish(){
       let roles =  Meteor.roleAssignment.findOne({'user._id': this.userId})
 
     return [
-      Announcements.find({ "community": roles.scope }),
-      NewsUpdate.find({"community": roles.scope  }),
-      UpcomingEvents.find({ "community": roles.scope })
+      Announcements.find({ "community": roles.scope },{sort: {createdAt: -1}, limit: dl}),
+      NewsUpdate.find({"community": roles.scope  },{sort: {createdAt: -1}, limit: dl}),
+      UpcomingEvents.find({ "community": roles.scope },{sort: {createdAt: -1}, limit: dl})
     ];
   }
   }

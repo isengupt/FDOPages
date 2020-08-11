@@ -1,62 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import _ from 'lodash';
-import { setButtonState, useAccount } from "../../utils/utils";
+import React from 'react'
+import { ListComponents, setButtonState, useAccount } from "../../utils/utils";
 import { Meteor } from "meteor/meteor";
 import { useTracker } from "meteor/react-meteor-data";
-import { ListComponents } from '../../utils/utils'
-
+import { UpcomingEvents } from '../../../api/schema/UpcomingEvent';
+import { Announcements } from '../../../api/schema/Announcements';
+import { NewsUpdate } from '../../../api/schema/NewsUpdate';
 
 
 const Dashboard = () => {
-  const [announcements, setAnnouncements] = useState([])
-  const [newsUpdates, setNewsUpdates] = useState([])
-  const [upcomingEvents, setUpcomingEvents] = useState([])
-  const { user, userId } = useAccount();
 
-  setButtonState("community");
+    const { announcements, newsUpdates, upcomingEvents, user } = useTracker(() => {
+      
+        Meteor.subscribe('Dashboard');
 
-  const { loaded } = useTracker(() => {
-    if (!userId) return { loaded: true };
+        return ({
+        upcomingEvents: UpcomingEvents.find({}).fetch(),
+        announcements: Announcements.find({}).fetch(),
+        newsUpdates: NewsUpdate.find({}).fetch(),
+        user: Meteor.user()
+      });
+    });
 
-    const dashBoardInfo = Meteor.subscribe("Dashboard");
-    console.log(dashBoardInfo)
 
-    if (dashBoardInfo.ready()) {
-
-      let announcementsData = Announcements.find({}).fetch();
-
-      let newsUpdatesData = NewsUpdate.find({}).fetch();
-      let upcomingEventsData = UpcomingEvents.find({}).fetch()
-      setAnnouncements(announcementsData)
-      setNewsUpdates(newsUpdatesData)
-      setUpcomingEvents(upcomingEventsData)
-
-      return {
-        loaded: dashBoardInfo.ready(),
-      };
-    } else {
-      return { loaded: true };
-    }
-  }, [user]);
-  return (
-    <div>
-      {loaded ?
+    return (
         <div>
-          <ListComponents.AnnouncementList listInfo={announcements} />
-          <ListComponents.NewsUpdatesPage listInfo={newsUpdates} />
-          <ListComponents.UpcomingEvents listInfo={upcomingEvents} />
+           <ListComponents.AnnouncementList listInfo={announcements} />
+           <ListComponents.NewsList listInfo={newsUpdates} />
+           <ListComponents.EventList listInfo={upcomingEvents}/>
         </div>
-        :
-        <div>Loading</div>
-      }
-    </div>
-
-  );
-
-
-
-
-};
+    )
+}
 
 export default Dashboard
 
