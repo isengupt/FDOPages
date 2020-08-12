@@ -24,7 +24,7 @@ const Resources = () => {
 
 
   const { loaded } = useTracker(() => {
-    if (!userId) return { loaded: true };
+    if (!userId) return { loaded: false};
 
     const resourcesInfo = Meteor.subscribe("Resources");
 
@@ -61,7 +61,7 @@ const Resources = () => {
           <ListComponents.VideoList listInfo={videosData}/>
         </>
         :
-        <div>Loading Data</div>
+        <div>Please Login</div>
       }
     </>
   )

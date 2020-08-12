@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Meteor } from 'meteor/meteor';
-import { EditPicker, useAccount } from "./utils";
+import { EditPicker, useAccount } from "../utils";
 const EditPage = () => {
     const { user } = useAccount();
     const documentId = FlowRouter.getParam('_id')

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Accounts } from 'meteor/accounts-base';
-import { Input } from 'semantic-ui-react'
+
 
 const SignUpForm = ({
   toggleState,

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { EditPicker, useAccount } from "../../utils/utils"
-import { set } from 'react-ga';
 
 const EditCommunityPage = () => {
 

@@ -1,23 +1,23 @@
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { FlowRouterMeta } from "meteor/ostrio:flow-router-meta";
 import { mount } from "react-mounter";
-//const Dashboard = require('./ui/pages/Dashboard/Dashboard').default
+
 import Dashboard from '../ui/pages/Dashboard/Dashboard'
 import Resources from '../ui/pages/Resources/Resources'
 import AboutPage from '../ui/pages/About/AboutPage'
 import CommunityPage from '../ui/pages/Community/CommunityPage'
 import EditAboutPage from '../ui/pages/About/EditAboutPage'
 import EditCommunityPage from '../ui/pages/Community/EditCommunityPage'
-import Navbar from '../ui/utils/Navbar'
-import Footer from '../ui/utils/Footer'
-import EditPage from '../ui/utils/EditPage'
-import ListPage from '../ui/utils/ListPage'
-import CreatePage from "../ui/utils/CreatePage";
-import DetailPage from "../ui/utils/DetailPage";
+import Navbar from '../ui/utils/template/Navbar'
+import Footer from '../ui/utils/template/Footer'
+import EditPage from '../ui/utils/scaffolds/EditPage'
+import ListPage from '../ui/utils/scaffolds/ListPage'
+import CreatePage from "../ui/utils/scaffolds/CreatePage";
+import DetailPage from "../ui/utils/scaffolds/DetailPage";
 
 
-import NotFound from '../ui/utils/NotFound'
-import Template from '../ui/utils/Template'
+import NotFound from '../ui/utils/components/NotFound'
+import Template from '../ui/utils/template/Template'
 import {setButtonState} from '../ui/utils/utils'
 
 FlowRouter.route("/", {

@@ -1,25 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Meteor } from 'meteor/meteor';
-import { useTracker } from 'meteor/react-meteor-data';
-import { FlowRouter } from "meteor/ostrio:flow-router-extra"
-import Modal from '../utils/Modal'
-import Modal2 from "../utils/Modal2";
-import useModal from './useModal';
-import LoginSection from '../pages/Dashboard/LoginSection'
-import { Roles } from 'meteor/alanning:roles';
+import Modal from "../components/Modal";
+import useModal from '../components/useModal';
+import LoginSection from '../../pages/Login/LoginSection'
+import ActionButton from "../components/ActionButton";
+import { useAccount } from "../utils";
 import './Navbar.css'
 
-import ActionButton from "./ActionButton";
-import { setButtonState, useAccount } from "./utils";
-
 const Navbar = () => {
-  const {isShowing, toggle} = useModal();
-  const [showLogin, setShowLogin] = useState(false); 
-  const [showModal, setShowModal] = useState(false); 
-  const { user, userId, isLoggingIn} = useAccount();
+  const { isShowing, toggle } = useModal();
+  const [showLogin, setShowLogin] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const { user, userId, isLoggingIn } = useAccount();
   let subtoken;
-  
+
   useEffect(() => {
 
     subtoken = PubSub.subscribe("MANAGE_DATA", (msg, data) => {
@@ -42,7 +35,7 @@ const Navbar = () => {
   useEffect(() => {
     if (!user && !isLoggingIn) {
       setShowLogin(true);
-      
+
     }
   }, [user]);
 
@@ -60,27 +53,27 @@ const Navbar = () => {
               <span className="contain text-span-5">FFHMO</span>
             </h3>
           </a>
-          </div>
-          <div className="navbar__item">
-            <a href="/">About</a>
-          </div>
-          <div className="navbar__item">
-            <a href="/resources">Resources</a>
-          </div>
-          <div className="navbar__item">
-            <a href="/community">Community</a>
-          </div>
+        </div>
+        <div className="navbar__item">
+          <a href="/">About</a>
+        </div>
+        <div className="navbar__item">
+          <a href="/resources">Resources</a>
+        </div>
+        <div className="navbar__item">
+          <a href="/community">Community</a>
+        </div>
 
       </div>
       <div className="navbar__right">
 
         <div className="navbar__links">
-        <div className="navbar-buttons">
-                  { showLogin ?
-                    <>
+          <div className="navbar-buttons">
+            {showLogin ?
+              <>
 
-                    
-                     {/*  <Modal
+
+                {/*  <Modal
                         isOpen={showModal}
                         closeModal={() => {
                           setShowModal(false);
@@ -91,28 +84,28 @@ const Navbar = () => {
                       >
                         <LoginSection />
                       </Modal> */}
-                    {/*   <button
+                {/*   <button
                         aria-current="page"
                         className="button w-button w--current"
                         onClick={(event) =>
                           event.preventDefault() || setShowModal(true)
                         }
                       > */}
-                       <button type="button" className="button-default" onClick={
-                          toggle 
-                       }>
-                        Login
+                <button type="button" className="button-default" onClick={
+                  toggle
+                }>
+                  Login
                       </button>
-                      <Modal2
-        isShowing={isShowing}
-        hide={toggle}
-  
-      ><LoginSection/></Modal2>
-                    </>
-                    :
-                    <ActionButton />
-                  }
-                </div>
+                <Modal
+                  isShowing={isShowing}
+                  hide={toggle}
+
+                ><LoginSection /></Modal>
+              </>
+              :
+              <ActionButton />
+            }
+          </div>
 
         </div>
 

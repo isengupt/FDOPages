@@ -3,8 +3,8 @@ import { Meteor } from "meteor/meteor";
 import toastr from "../../utils/toastr";
 import validate from "validate.js";
 import { Accounts } from "meteor/accounts-base";
-import LoginForm from "./LoginSection/LoginForm";
-import SignUpForm from "./LoginSection/SignUpForm";
+import LoginForm from "./components/LoginForm";
+import SignUpForm from "./components/SignUpForm";
 
 const LoginSection = ({ loginFormState }) => {
     const [state, setState] = useState(loginFormState || "login"); //login signup reset

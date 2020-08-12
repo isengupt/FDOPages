@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Meteor } from 'meteor/meteor';
-import { CreatePicker, useAccount } from "./utils";
+import { CreatePicker, useAccount } from "../utils";
 const CreatePage = () => {
-    const { user, userId, isLoggingIn } = useAccount();
+    
+    const { user } = useAccount();
     const componentId = FlowRouter.getParam('component')
     const [toggleState, setToggleState] = useState(false)
     const [editable, setEditable]  = useState(false)

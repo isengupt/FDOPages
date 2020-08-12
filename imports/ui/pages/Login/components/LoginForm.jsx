@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Input, Header } from 'semantic-ui-react'
-import "./forms.css"
+import React from 'react';
+import { Input} from 'semantic-ui-react'
+
 
 const LoginForm = ({ toggleState,
   email,

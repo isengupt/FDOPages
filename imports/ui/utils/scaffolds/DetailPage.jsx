@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Meteor } from 'meteor/meteor';
-import { ListPicker, useAccount } from "./utils";
-const ListPage = () => {
+import { DetailsPicker, useAccount } from "../utils";
+const DetailPage = () => {
     const { user, userId, isLoggingIn } = useAccount();
 
     const componentId = FlowRouter.getParam('component')
-    
-    const [listInfo, setListInfo] = useState(false)
+    const documentId = FlowRouter.getParam('_id')
+    const [detailInfo, setDetailInfo] = useState(false)
     const [toggleState, setToggleState] = useState(false)
 
     React.useEffect(() => {
-        Meteor.call("retrieveListInfo", componentId, (e, r) => {
+        Meteor.call("retrieveDetailInfo", componentId, documentId,  (e, r) => {
             console.log(e)
             if (!e) {
                 console.log(r)
-                setListInfo(r.doc)
+                setDetailInfo(r.doc)
                 setToggleState(r.toggleState)
             }
         })
@@ -26,7 +26,7 @@ const ListPage = () => {
    <>
    {toggleState ? 
  <div>
- <ListPicker toggleState={toggleState} listInfo={listInfo}/> 
+ <DetailsPicker toggleState={toggleState} detailInfo={detailInfo}/> 
  </div> :
   <div>
       Loading
@@ -36,4 +36,4 @@ const ListPage = () => {
     )
 }
 
-export default ListPage;
+export default DetailPage;
