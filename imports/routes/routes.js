@@ -131,7 +131,10 @@ FlowRouter.route("/create/:component/", {
 
     })
   }
+
 })
+
+
 
 FlowRouter.route("/detail/:component/:_d", {
   name: "detail-page",
@@ -145,6 +148,7 @@ FlowRouter.route("/detail/:component/:_d", {
     })
   }
 })
+
 
 FlowRouter.route("*", {
 

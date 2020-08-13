@@ -12,6 +12,9 @@ import { ForumLink } from "../schema/ForumLink";
 import { NewsUpdate } from "../schema/NewsUpdate";
 
 
+
+
+
 Meteor.methods({
     getCurrentAboutData: function () {
         let aboutData = About.findOne({})
@@ -297,7 +300,6 @@ Meteor.methods({
             return "Not authorized"
         }
     }
-
 
 })
 

@@ -8,7 +8,7 @@ import { LearnLinks } from '../../../api/schema/LearnLinks';
 import { ForumLink } from '../../../api/schema/ForumLink'
 import { Interview } from '../../../api/schema/Interviews'
 import {ListComponents} from '../../utils/utils'
-import { List } from 'semantic-ui-react';
+
 
 
 

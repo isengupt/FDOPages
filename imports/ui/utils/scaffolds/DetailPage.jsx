@@ -3,8 +3,9 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Meteor } from 'meteor/meteor';
 import { DetailsPicker, useAccount } from "../utils";
 const DetailPage = () => {
-    const { user, userId, isLoggingIn } = useAccount();
 
+
+    const { user, userId, isLoggingIn } = useAccount();
     const componentId = FlowRouter.getParam('component')
     const documentId = FlowRouter.getParam('_id')
     const [detailInfo, setDetailInfo] = useState(false)
@@ -20,6 +21,9 @@ const DetailPage = () => {
             }
         })
     }, [user])
+
+    
+
 
 
     return (

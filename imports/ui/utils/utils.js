@@ -16,6 +16,7 @@ import { Videos, VideoSchema, VideoFormSchema } from '../../api/schema/Video'
 import { LearnLinks, LearnLinksSchema, LearnFormSchema } from '../../api/schema/LearnLinks'
 import { AboutSchema, About } from "../../api/schema/About";
 import { ChapterSchema } from "../../api/schema/ChapterInfo";
+import swal from "sweetalert";
 
 export const useAccount = () =>
   useTracker(() => {
@@ -61,6 +62,11 @@ function checkList(listInfo) {
 
 
 export const DetailComponents = {
+  ContentUpdateDetail: function ContentUpdateDetail(props) {
+    return <div>
+
+    </div>
+  },
   BlogDetail: function BlogDetail(props) {
     return <div>
       {props.detailInfo ?
@@ -397,7 +403,7 @@ export const ListComponents = {
       return <div>
         {props.listInfo.map(announcement =>
           <div key={announcement._id}>
-            <div>Title: {announcement.title}</div>
+            <div className="announcement__title">Title: {announcement.title}</div>
             <div>Content: {announcement.content}</div>
             <div>Contact: {announcement.contact}</div>
             <div>User: {announcement.user}</div>
@@ -822,7 +828,6 @@ export const EditComponents = {
           <Segment>
             <TextField name='title' />
             <TextField name='content' />
-
             <SubmitField value='Submit' />
             <ErrorsField />
             <HiddenField name='user' />
@@ -1211,6 +1216,7 @@ export const CreateFunctions = {
     Announcements.insert({ title, content, user, contact, timePosted, community },
       (err) => {
         if (err) {
+        
           swal('Error', err.message, 'error')
         } else {
           swal('Success', 'Event posted', 'success')
@@ -1282,8 +1288,6 @@ export const CreateFunctions = {
     const user = Meteor.user().username;
     const timePosted = Date.now()
 
-
-    console.log(community)
 
     Interview.insert({ title, description, timePosted, interviewQuestions, timeConducted, user, community },
       (err) => {
