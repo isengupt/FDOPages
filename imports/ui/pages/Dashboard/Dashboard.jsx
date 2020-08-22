@@ -23,11 +23,34 @@ const Dashboard = () => {
 
 
     return (
+        <div class="section">
+        <div class="w-layout-grid grid-4">
+        <div class="dashboard-sidebar-navigation">
+        <div class="dashboard-sidebar-navigation-item">
+          <div><span class="fa-icon"></span></div>
+          <div class="dashboard-sidebar-item-text">Announcements</div>
+        </div>
+        <div class="dashboard-sidebar-navigation-item">
+          <div><span class="fa-icon"></span></div>
+          <div class="dashboard-sidebar-item-text">Members</div>
+        </div>
+        <div class="dashboard-sidebar-navigation-item active">
+          <div><span class="fa-icon"></span></div>
+          <div class="dashboard-sidebar-item-text">Members</div>
+        </div>
+        <div class="dashboard-sidebar-navigation-item active">
+          <div><span class="fa-icon"></span></div>
+          <div class="dashboard-sidebar-item-text">Members</div>
+        </div>
+        </div>
         <div>
            <ListComponents.AnnouncementList listInfo={announcements} />
            <ListComponents.NewsList listInfo={newsUpdates} />
            <ListComponents.EventList listInfo={upcomingEvents}/>
         </div>
+      </div>
+      </div>
+      
     )
 }
 

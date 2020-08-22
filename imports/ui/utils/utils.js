@@ -308,24 +308,43 @@ export const DetailComponents = {
   },
   HistoryDetail: function HistoryDetail(props) {
     return (
-      <div>
+      <>
         {
           props.detailInfo ?
-            <>
-              <img className="advisor__image" src={props.detailInfo.founderImage} alt="founder-image" />
-              <div>{props.detailInfo.founderName}</div>
-              <div>{props.detailInfo.founderStory}</div>
-              <div>{props.detailInfo.founderQuote}</div>
-              <div>{props.detailInfo.foundProfileLink}</div>
-              <div>{props.detailInfo.founderProfileLink}</div>
-            </>
+
+          <div class="history-component">
+          <div class="history-profile-image" style={{backgroundImage: `url(${props.detailInfo.founderImage})` }}> 
+
+          </div>
+          <div id="w-node-7c6b47509ea1-8378b568" class="div-block-3">
+            <div class="history-text-info">
+              <div class="div-block-4">
+                <div class="history-title">{props.detailInfo.founderName}</div>
+              </div>
+              <div>
+                <div class="news-update-authoer">&quot; {props.detailInfo.founderStory} &quot;Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.&quot; &quot;Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.&quot;</div>
+                <div class="more-about-me-container">
+                  <div class="red-about-me-container">{props.detailInfo.founderName}</div>
+                  <div class="text-block-84"><span class="fa-icon-big-red"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+
+
+        
+    
+        
+          
             :
             <div>
               No Item
  </div>
 
         }
-      </div>
+      </>
     )
   },
   FundraisingDetail: function FundraisingDetail(props) {
@@ -400,22 +419,23 @@ export const ListComponents = {
   },
   AnnouncementList: function AnnouncementList(props) {
     if (checkList(props.listInfo)) {
-      return <div>
+      return <>
         {props.listInfo.map(announcement =>
-          <div key={announcement._id}>
-            <div className="announcement__title">Title: {announcement.title}</div>
-            <div>Content: {announcement.content}</div>
-            <div>Contact: {announcement.contact}</div>
-            <div>User: {announcement.user}</div>
-            <div>User: {announcement.community}</div>
-            <a href={`/profile/${announcement.user}`}>Visit Profie</a>
-            <a href={`/edit/announcement/${announcement._id}`}>Edit Announcement</a>
-            <br></br>
+  
 
-          </div>
+<div class="announcement-wide-info" key={announcement._id}>
+              <div class="announcement-wide-label"><a href={`/profile/${announcement.user}`}>Profile</a> </div>
+              <div>
+                <div class="announcement-name-copy">{announcement.title} : <span class="text-span-2">{announcement.content}</span></div>
+              </div>
+              <div class="text-block-84"><span class="fa-icon-grey-big"></span></div>
+            </div>
+          
+
+        
 
         )}
-      </div>
+      </>
     }
     else {
       return <div>No Items Found</div>
