@@ -5066,7 +5066,7 @@ padding-bottom: 20px;
 .div-block-7 {
   display: -ms-grid;
   display: grid;
-
+  width: 33%;
   padding: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -5156,9 +5156,25 @@ padding-bottom: 20px;
   text-align: center;
 }
 
+.learn-more-button-green {
+  color: #02c39a;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 500;
+  padding: 10px 20px;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  max-width: 250px;
+  background-color: white;
+}
+
 .learn-more-button:hover {
   background-color: #2faeb4;
 }
+
+
+
 
 .signin-hero {
   max-width: 50%;
