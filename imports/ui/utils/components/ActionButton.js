@@ -67,8 +67,9 @@ const ActionButton = ({ state }) => {
 
   return (
     <button
+    
       aria-current="page"
-      className="button w-button w--current"
+      className="login-button w-button"
       onClick={onClickAction}
     >
       {getButtonText()}

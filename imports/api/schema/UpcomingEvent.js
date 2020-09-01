@@ -52,13 +52,10 @@ const UpcomingEventschema = new SimpleSchema({
     label: "School that event is associated",
   
   },
-  inviteList: {
-    type: Array, 
-    label: "List of people invited to event (initially empty)",
-    defaultValue: [] 
-  },
-  'inviteList.$': String
-
+  image: {
+    type:String,
+    label: "Image url for the event"
+  }
   
 }, { tracker: Tracker });
 

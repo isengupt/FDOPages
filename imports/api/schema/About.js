@@ -73,6 +73,7 @@ const AboutSchema = new SimpleSchema({
         type: String,
         label: "The user that posted the chapter info",
     },
+    
 }, { tracker: Tracker });
 
 About.attachSchema(AboutSchema);

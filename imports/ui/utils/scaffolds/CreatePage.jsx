@@ -11,7 +11,9 @@ const CreatePage = () => {
     const [userScope, setUserScope] = useState(false)
 
     React.useEffect(() => {
+        console.log(toggleState)
         setToggleState(componentId)
+
     
         Meteor.call("setEditable", componentId, (e, r) => {
             if (!e) {

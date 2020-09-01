@@ -1,72 +1,86 @@
-import React from 'react';
-import { Input} from 'semantic-ui-react'
+import React from "react";
+import { Input } from "semantic-ui-react";
 
-
-const LoginForm = ({ toggleState,
+const LoginForm = ({
+  toggleState,
   email,
   setEmail,
   password,
   setPassword,
-  login, }) => {
-
-
+  login,
+}) => {
   return (
-    <div className="form__component">
-      <form onSubmit={() =>
-        event.stopPropagation() || event.preventDefault() || login()
-      } className="form__container">
-        <div className="form__title__container">
-          <div className="form__title">
-            Sign In
-       </div>
+    <div className="login-form">
+      <h1 className="signin-hero">
+        Welcome back <span className="brand-span">Doctor.</span>
+      </h1>
+      <div className="mission-signup">
+        <div className="text-block-88">Continue your mission.</div>
+        <div className="mission-small">
+          New here? 
+          <span
+            className="sign-up-span"
+            onClick={(event) => event.preventDefault() || toggleState("signup")}
+          >
+            Sign up at this link
+          </span>
         </div>
-
-        <div className="form__field">
-          <div className="form__input__title">Email</div>
-
-          <Input
+      </div>
+      <div className="login-form-component w-form">
+        <form
+          id="email-form"
+          name="email-form"
+          data-name="Email Form"
+          onSubmit={() =>
+            event.stopPropagation() || event.preventDefault() || login()
+          }
+        >
+          <label for="name" className="form-label">
+            Email
+          </label>
+          <input
             type="text"
-            placeholder="Email"
-            name="email"
-            required
+            className="text-field w-input"
+            name="name"
+            data-name="Name"
+            placeholder=""
+            id="name"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
-        </div>
-        <div className="form__field">
-          <div className="form__input__title">Password</div>
-
-          <Input
+          <div className="div-block-8">
+            <label for="email" className="form-label">
+              Password
+            </label>
+            <label for="email-2" className="password-forgot-label">
+              Forgot your password?
+            </label>
+          </div>
+          <input
             type="password"
-            placeholder="Password"
-            name="password"
-            required
+            className="w-input"
+            name="email"
+            data-name="Email"
+            placeholder=""
+            id="email"
+            required=""
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-        </div>
-        <div className="form__buttons">
+
           <input
             type="submit"
-            defaultValue="Sign In"
+            value="Sign In"
             data-wait="Please wait..."
-            className="button-4 button-large bg-gradient-4 w-button"
+            className="submit-signup w-button"
           />
-
-
-        </div>
-      </form>
-      <div className="text-center">
-        Don't have an account yet?&nbsp;
-          <a
-          onClick={(event) => event.preventDefault() || toggleState("signup")}
-          className="information-link"
-        >
-          Create one
-          </a>
+        </form>
       </div>
+      <a href="#" className="google-signin-button w-button">
+        School Portal Sign In
+      </a>
     </div>
   );
 };
 
-export default LoginForm
+export default LoginForm;

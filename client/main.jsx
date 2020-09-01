@@ -3,10 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import "../imports/routes/routes";
 import Modal from "react-modal";
 import 'semantic-ui-css/semantic.css';
-import './main.css'
-import './css/ishan-fdo-design.webflow.css'
-import './normalize.css'
-import './webflow.css'
+import './main.css';
+import './animations.scss'
+
 
 
 Modal.setAppElement("#react-target");

@@ -5,6 +5,13 @@ import validate from "validate.js";
 import { Accounts } from "meteor/accounts-base";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
+import Select from 'react-select';
+
+const options = [
+  { value: 'severna-park', label: 'Severna Park' },
+  { value: 'broadneck', label: 'Broadneck' },
+
+];
 
 const LoginSection = ({ loginFormState }) => {
     const [state, setState] = useState(loginFormState || "login"); //login signup reset
@@ -12,6 +19,10 @@ const LoginSection = ({ loginFormState }) => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [readTC, setReadTC] = useState(false);
+    const [school, setSchool] = useState(null)
+    const handleChange = selectedOption => {
+     setSchool(selectedOption)
+    };
   
     const toggleState = (state) => {
       const validStates = ["login", "signup"];
@@ -123,6 +134,10 @@ const LoginSection = ({ loginFormState }) => {
           signup={signup}
           readTC={readTC}
           setReadTC={setReadTC}
+          school={school}
+          setSchool={setSchool}
+          options={options}
+          handleChange={handleChange}
         />
       );
    

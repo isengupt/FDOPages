@@ -1,5 +1,5 @@
-import React from 'react'
-import { ListComponents, setButtonState, useAccount } from "../../utils/utils";
+import React, {useState} from 'react'
+import { ListPicker, ListComponents, setButtonState, useAccount } from "../../utils/utils";
 import { Meteor } from "meteor/meteor";
 import { useTracker } from "meteor/react-meteor-data";
 import { UpcomingEvents } from '../../../api/schema/UpcomingEvent';
@@ -8,6 +8,21 @@ import { NewsUpdate } from '../../../api/schema/NewsUpdate';
 
 
 const Dashboard = () => {
+
+  const [toggleState, setToggleState] = useState("announcement");
+
+ 
+
+
+
+
+  const toggleStatePick = (state) => {
+      const allowedStates = ["announcement", "event", "newsupdate"];
+      const stateStr = state;
+      if (allowedStates.includes(stateStr)) {
+          setToggleState(stateStr);
+      }
+  }
 
     const { announcements, newsUpdates, upcomingEvents, user } = useTracker(() => {
       
@@ -21,36 +36,81 @@ const Dashboard = () => {
       });
     });
 
+    const ToggledData = ({toggleState}) => {
+      if (toggleState == "announcement") {
+        return (
+        <ListComponents.AnnouncementList listInfo={announcements} page={"dashboard"} />
+        )
+      
+     
+      }
+      else if (toggleState == "newsupdate") {
+        return (
+          <ListComponents.NewsList listInfo={newsUpdates} />
+        )
+      }
+
+      else if (toggleState == "event") {
+        return (
+          <ListComponents.EventList listInfo={upcomingEvents}/>
+        )
+      }
+
+      
+     
+    }
+
+
+
 
     return (
-        <div class="section">
-        <div class="w-layout-grid grid-4">
+      <>
+  <div class="dashboard-main-page-container">
+    <div class="section">
+      <div class="w-layout-grid grid-4">
         <div class="dashboard-sidebar-navigation">
-        <div class="dashboard-sidebar-navigation-item">
-          <div><span class="fa-icon"></span></div>
-          <div class="dashboard-sidebar-item-text">Announcements</div>
+          <div className="dashboard-sidebar-navigation-item"  onClick={(event) =>
+                        event.stopPropagation() ||
+                        event.preventDefault() ||
+                        toggleStatePick("announcement")
+                    }>
+            <div><span class="fa-icon"></span></div>
+            <div class="dashboard-sidebar-item-text">Announcements</div>
+          </div>
+          <div class="dashboard-sidebar-navigation-item"  onClick={(event) =>
+                        event.stopPropagation() ||
+                        event.preventDefault() ||
+                        toggleStatePick("event")
+                    }>
+            <div><span class="fa-icon"></span></div>
+            <div className="dashboard-sidebar-item-text">Events</div>
+          </div>
+         
+          <div className="dashboard-sidebar-navigation-item"  onClick={(event) =>
+                        event.stopPropagation() ||
+                        event.preventDefault() ||
+                        toggleStatePick("newsupdate")
+                    }>
+            <div><span class="fa-icon"></span></div>
+            <div class="dashboard-sidebar-item-text">Updates</div>
+          </div>
         </div>
-        <div class="dashboard-sidebar-navigation-item">
-          <div><span class="fa-icon"></span></div>
-          <div class="dashboard-sidebar-item-text">Members</div>
-        </div>
-        <div class="dashboard-sidebar-navigation-item active">
-          <div><span class="fa-icon"></span></div>
-          <div class="dashboard-sidebar-item-text">Members</div>
-        </div>
-        <div class="dashboard-sidebar-navigation-item active">
-          <div><span class="fa-icon"></span></div>
-          <div class="dashboard-sidebar-item-text">Members</div>
-        </div>
-        </div>
-        <div>
-           <ListComponents.AnnouncementList listInfo={announcements} />
-           <ListComponents.NewsList listInfo={newsUpdates} />
-           <ListComponents.EventList listInfo={upcomingEvents}/>
+        <div class="dashboard-main-page-info">
+                    <ToggledData toggleState={toggleState}/>
+
+  
+       
+         
+        
+        
         </div>
       </div>
-      </div>
+    </div>
+  </div>
       
+         
+        
+      </>
     )
 }
 

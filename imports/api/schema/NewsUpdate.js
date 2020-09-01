@@ -41,6 +41,10 @@ const NewsUpdateSchema = new SimpleSchema({
   community: {
     type: String,
     label: "Community level the news update is intended for"
+  },
+  image: {
+    type: String,
+    label: "Image url link"
   }
 
  

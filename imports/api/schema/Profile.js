@@ -1,6 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
+import 'uniforms-bridge-simple-schema-2';
+import ImageField from '../../ui/utils/ImageField'
 
 /** Define a Mongo collection to hold the data. */
 const Profile = new Mongo.Collection('Profile');
@@ -25,23 +27,18 @@ const Interests = new SimpleSchema({
     }
 });
 const ProfileFormSchema = new SimpleSchema({
-  email: {
-    type: String,
-    
-  },
-  aboutMe: {
-    type: String,
-    
+  email: String,
+  aboutMe: String,
+
+  gradYear:Date,
+  interests: Interests,
+
+  logo: {
+    type: Object,
+    uniforms: ImageField,
+    optional: true
   },
 
-  gradYear: {
-    type: Date,
-   
-  },
-  interests: {
-    type: Interests,
-    
-  },
 
 })
 
@@ -72,6 +69,19 @@ const ProfileSchema = new SimpleSchema({
     type: String,
     label: "School / organization that member is associated with"
   },
+  position: {
+    type: String,
+    label: "Position with in the chapter"
+  },
+ 
+  image: {
+    type: Object,
+    uniforms: ImageField,
+    optional: true
+  },
+  'image.url': String,
+  'image.public_id': String,
+ 
  
 
   
@@ -83,4 +93,6 @@ Profile.attachSchema(ProfileSchema);
 
 /** Make the collection and schema available to other code. */
 export { Profile, ProfileSchema, ProfileFormSchema };
+
+
 

@@ -27,3 +27,5 @@ ostrio:flow-router-meta
 ostrio:flow-router-extra
 insecure
 accounts-base
+socialize:cloudinary
+fourseven:scss

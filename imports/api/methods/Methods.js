@@ -36,8 +36,9 @@ Meteor.methods({
 
             if (roles.scope) {
                 let chapterData = ChapterInfo.findOne({ 'community': roles.scope })
-
-
+                    profile = Profile.find({'community': roles.scope}).fetch()
+                    events = UpcomingEvents.find({'community': roles.scope}).fetch()
+                    announcements = Announcements.find({'community': roles.scope}).fetch()
                 let formattedData = {
                     "images": chapterData.imageGallery,
                     "initiatives": chapterData.initiatives.chapterInitiatives,
@@ -47,7 +48,11 @@ Meteor.methods({
                     "_id": chapterData._id,
                     "electionDate": chapterData.electionDate,
                     "history": chapterData.history,
-                    "advisor": chapterData.advisor
+                    "advisor": chapterData.advisor,
+                    "profiles": profile,
+                    "events": events,
+                    "announcements": announcements,
+                    "name": roles.scope
                 }
                 return formattedData
             }
@@ -61,6 +66,7 @@ Meteor.methods({
     },
     getScope: function () {
         if (this.userId) {
+            console.log(Meteor.roleAssignment.findOne({ 'user._id': this.userId }))
             let roles = Meteor.roleAssignment.findOne({ 'user._id': this.userId })
             return roles.scope
 
@@ -72,7 +78,9 @@ Meteor.methods({
     setEditable: function (page) {
 
         if (this.userId) {
+        
             let roles = Meteor.roleAssignment.findOne({ 'user._id': this.userId }).inheritedRoles
+            console.log(roles)
             let roleArr = roles.map(role => role._id);
 
             switch (page) {
@@ -96,6 +104,8 @@ Meteor.methods({
                     return true
                 case "event":
                     return ["super-admin", "organizer"].some(r => roleArr.includes(r))
+                case "profile":
+                    return true
             }
         }
         else {
@@ -191,36 +201,38 @@ Meteor.methods({
 
         if (this.userId) {
             var detailInfo = {}
-
+            console.log(_id)
             switch (component) {
                 case "event":
-                    detailInfo = { "doc": UpcomingEvents.findOne(_id), "toggleState": "event" }
+                   console.log( UpcomingEvents.findOne({"_id" : _id}))
+                    detailInfo = { "doc": UpcomingEvents.findOne({"_id" : _id}), "toggleState": "event" }
                     return detailInfo
 
                 case "announcement":
-                    detailInfo = { "doc": Announcements.findOne(_id), "toggleState": "announcement" }
+                    detailInfo = { "doc": Announcements.findOne({"_id" : _id}), "toggleState": "announcement" }
                     return detailInfo
 
                 case "blog":
-                    detailInfo = { "doc": Blogs.findOne(_id), "toggleState": "blog" }
+                    detailInfo = { "doc": Blogs.findOne({"_id" : _id}), "toggleState": "blog" }
                     return detailInfo
                 case "profile":
-                    detailInfo = { "doc": Profile.findOne(_id), "toggleState": "profile" }
+                    detailInfo = { "doc": Profile.findOne({"_id" : _id}), "toggleState": "profile" }
                     return detailInfo
                 case "newsupdate":
-                    detailInfo = { "doc": NewsUpdate.findOne(_id), "toggleState": "newsupdate" }
+                    detailInfo = { "doc": NewsUpdate.findOne({"_id" : _id}), "toggleState": "newsupdate" }
                     return detailInfo
                 case "forum":
-                    detailInfo = { "doc": ForumLink.findOne(_id), "toggleState": "forum" }
+                    detailInfo = { "doc": ForumLink.findOne({"_id" : _id}), "toggleState": "forum" }
                     return detailInfo
                 case "interview":
-                    detailInfo = { "doc": Interview.findOne(_id), "toggleState": "interview" }
+                    console.log(Interview.findOne({"_id" : _id}))
+                    detailInfo = { "doc": Interview.findOne({"_id" : _id}), "toggleState": "interview" }
                     return detailInfo
                 case "video":
-                    detailInfo = { "doc": Videos.findOne(_id), "toggleState": "video" }
+                    detailInfo = { "doc": Videos.findOne({"_id" : _id}), "toggleState": "video" }
                     return detailInfo
                 case "learnLink":
-                    detailInfo = { "doc": LearnLinks.findOne(_id), "toggleState": "learnLink" }
+                    detailInfo = { "doc": LearnLinks.findOne({"_id" : _id}), "toggleState": "learnLink" }
                     return detailInfo
             }
         }

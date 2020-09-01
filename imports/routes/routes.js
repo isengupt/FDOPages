@@ -1,5 +1,6 @@
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { FlowRouterMeta } from "meteor/ostrio:flow-router-meta";
+import { Cloudinary } from 'meteor/socialize:cloudinary';
 import { mount } from "react-mounter";
 
 import Dashboard from '../ui/pages/Dashboard/Dashboard'
@@ -19,6 +20,13 @@ import DetailPage from "../ui/utils/scaffolds/DetailPage";
 import NotFound from '../ui/utils/components/NotFound'
 import Template from '../ui/utils/template/Template'
 import {setButtonState} from '../ui/utils/utils'
+
+
+
+Cloudinary.config({
+  cloud_name:'dtihxyw16',
+  api_key: '363748713251226',
+});
 
 FlowRouter.route("/", {
   name: "landing",
@@ -136,7 +144,7 @@ FlowRouter.route("/create/:component/", {
 
 
 
-FlowRouter.route("/detail/:component/:_d", {
+FlowRouter.route("/detail/:component/:_id", {
   name: "detail-page",
   
   action(params) {

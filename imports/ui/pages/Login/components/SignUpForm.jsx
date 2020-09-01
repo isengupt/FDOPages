@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Select from 'react-select';
 
 const SignUpForm = ({
   toggleState,
@@ -12,77 +12,101 @@ const SignUpForm = ({
   readTC,
   setReadTC,
   signup,
+  school,
+  setSchool,
+  options,
+  handleChange
 }) => {
   return (
-    <div className="panel content-width-extra-large">
-      <div className="panel-body grid-halves">
-        <div className="justify-column-between">
-          <div className="space-bottom">
-            <h1 className="card-heading no-bottom-space">Create an account.</h1>
-            <div className="card-heading-2">
 
-            </div>
-          </div>
-          <div>
-            <div>Already have an account?</div>
-            <a
-              onClick={(event) =>
-                event.stopPropagation() ||
-                event.preventDefault() ||
-                toggleState("login")
-              }
-              className="information-link"
-            >
-              Sign in here
-            </a>
-          </div>
+    <div className="login-form">
+    <h1 className="signin-hero">
+      Welcome back <span className="brand-span">Doctor.</span>
+    </h1>
+    <div className="mission-signup">
+      <div className="text-block-88">Continue your mission.</div>
+      <div className="mission-small">
+        New here? 
+        <span
+          className="sign-up-span"
+          onClick={(event) => event.preventDefault() || toggleState("signup")}
+        >
+          Sign up at this link
+        </span>
+      </div>
+    </div>
+    <div className="login-form-component w-form">
+      <form
+        id="email-form"
+        name="email-form"
+        data-name="Email Form"
+        onSubmit={() =>
+          event.stopPropagation() || event.preventDefault() || signup()
+        }
+      >
+        <label for="name" className="form-label">
+          Email
+        </label>
+        <input
+          type="text"
+          className="text-field w-input"
+          name="name"
+          data-name="Name"
+          placeholder=""
+          id="name"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+
+
+<div className="div-block-8">
+          <label for="email" className="form-label">
+            Password
+          </label>
+         
         </div>
-        <div className="form w-form">
-          <form
-            className="form-vertical"
-            onSubmit={() => event.preventDefault() || signup()}
-          >
-            <input
-              type="email"
-              className="form-input-2 form-input-large w-input"
-              maxLength={256}
-              name="email"
-              data-name="Email"
-              placeholder="Email Address"
-              id="email"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <input
-              type="password"
-              className="form-input-2 form-input-large w-input"
-              maxLength={256}
-              name="Password"
-              data-name="Password"
-              placeholder="Password"
-              id="Password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <input
-              type="password"
-              className="form-input-2 form-input-large w-input"
-              maxLength={256}
-              name="Confirm-Password"
-              data-name="Confirm Password"
-              placeholder="Confirm Password"
-              id="Confirm-Password"
-              value={confirmPassword}
-              onChange={(event) => setConfirmPassword(event.target.value)}
-            />
-            <input
-              type="submit"
-              defaultValue="Create Account"
-              data-wait="Please wait..."
-              className="button button-large bg-gradient-4 w-button"
-            />
-            <label className="w-checkbox field-row">
+        <input
+          type="password"
+          className="w-input"
+          name="email"
+          data-name="Email"
+          placeholder=""
+          id="email"
+          required=""
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+
+<div className="div-block-8">
+          <label for="email" className="form-label">
+           Confirm Password
+          </label>
+        
+        </div>
+        <input
+          type="password"
+          className="w-input"
+          name="email"
+          data-name="Email"
+          placeholder=""
+          id="email"
+          required=""
+          value={confirmPassword}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+        />
+  <Select
+        value={school}
+        onChange={() => handleChange()}
+        options={options}
+      />
+
+        <input
+          type="submit"
+          value="Sign In"
+          data-wait="Please wait..."
+          className="submit-signup w-button"
+        />
+         <label className="w-checkbox field-row">
               <input
                 type="checkbox"
                 id="checkbox"
@@ -99,10 +123,16 @@ const SignUpForm = ({
                 </a>
               </span>
             </label>
-          </form>
-        </div>
-      </div>
+      </form>
     </div>
+    <a href="#" className="google-signin-button w-button">
+      School Portal Sign In
+    </a>
+  </div>
+      
+     
+     
+
   );
 };
 

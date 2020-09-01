@@ -1,93 +1,95 @@
-import React, { useState, useEffect } from 'react';
-import { DetailComponents, setButtonState, useAccount } from "../../utils/utils"
+import React, { useState, useEffect } from "react";
+import {
+  DetailComponents,
+  ListComponents,
+  setButtonState,
+  useAccount,
+} from "../../utils/utils";
+import HeroImage from "./components/HeroImage";
+import EventComp from "../../utils/EventComp";
 
 const CommunityPage = () => {
   const { user, isLoggingIn } = useAccount();
   const [communityData, setCommunityData] = useState(false);
-  
 
   useEffect(() => {
     Meteor.call("getCurrentCommunityData", (e, r) => {
-      console.log(e)
+      console.log(e);
       if (!e) {
-        
-      setCommunityData(r);
-      console.log(r)
+        setCommunityData(r);
+        console.log(r);
       }
-     
-
-
     });
   }, [user]);
 
   useEffect(() => {
     Meteor.call("setEditable", "community", (e, r) => {
-
       if (!e) {
-        console.log(r)
-        if(r) {
-
-          setButtonState("edit-community")
-        }
-        else setButtonState("dashboard")
+        console.log(r);
+        if (r) {
+          setButtonState("edit-community");
+        } else setButtonState("dashboard");
       }
-
     });
-  }, [user, isLoggingIn])
+  }, [user, isLoggingIn]);
 
-  
-    return (
+  return (
+    <>
+      {communityData ? (
         <>
-          {communityData ?
-          <>
           <div class="section">
-    <div class="w-layout-grid grid-4">
-      <div class="dashboard-sidebar-navigation">
-        <div class="dashboard-sidebar-navigation-item">
-          <div><span class="fa-icon"></span></div>
-          <div class="dashboard-sidebar-item-text">Announcements</div>
-        </div>
-        <div class="dashboard-sidebar-navigation-item">
-          <div><span class="fa-icon"></span></div>
-          <div class="dashboard-sidebar-item-text">Members</div>
-        </div>
-        <div class="dashboard-sidebar-navigation-item active">
-          <div><span class="fa-icon"></span></div>
-          <div class="dashboard-sidebar-item-text">Members</div>
-        </div>
-        <div class="dashboard-sidebar-navigation-item active">
-          <div><span class="fa-icon"></span></div>
-          <div class="dashboard-sidebar-item-text">Members</div>
-        </div>
-      </div>
-      <div class="dashboard-main-page-info">
+            <div class="w-layout-grid grid-4">
+              <div class="dashboard-main-page-info">
+                <HeroImage name={communityData.name}/>
+              </div>
+            </div>
+          </div>
 
-<div class="fundraising-hero-image">
-    <div class="community-hero-text">
-      <h1 class="heading"><span class="big-red-text">Broadneck </span>Community Page</h1>
-    </div>
-    <div class="community-hero-side-info">
-      <div class="donate-now-button">
-        <div class="donate-text">Donate Now</div>
-      </div>
-    </div>
-  </div>
-    
-    <DetailComponents.AdvisorDetail detailInfo={communityData.advisor}/>
-    <DetailComponents.FundraisingDetail detailInfo={communityData.fundraising}/>
-    <DetailComponents.ImageGalleryDetail detailInfo={communityData.images}/>
-    <DetailComponents.LeadershipDetail detailInfo={communityData.leadership}/>
-    <DetailComponents.HistoryDetail detailInfo={communityData.history}/>
-    </div>
-      </div>
-      </div>
-   
-         </>
-          : 
-          <div>Loading Data</div>
-}
+          <div class="w-container">
+            <div class="title-wrap-centre flex-wrap">
+              <h2 className="no-margin-heading">Members</h2>
+              <a href={"/list/announcements"} class="paragraph-2 red-text">
+                See all members
+              </a>
+            </div>
+
+            <div class="community-announcements-container">
+              <ListComponents.ProfileList listInfo={communityData.profiles} />
+            </div>
+          </div>
+
+          <div class="container-2 w-container">
+            <div class="title-wrap-centre flex-wrap">
+              <h2 className="no-margin-heading">Announcements</h2>
+              <a href={"/list/announcements"} class="paragraph-2 red-text">
+                See what's new
+              </a>
+            </div>
+            <div class="community-announcements-container">
+              <ListComponents.AnnouncementList
+                listInfo={communityData.announcements}
+
+                page={"community"}
+              />
+            </div>
+          </div>
+          <div class="container-3 w-container">
+            <div class="title-wrap-centre flex-wrap ">
+              <h2 className="no-margin-heading">Events</h2>
+              <a href={"/list/announcements"} class="paragraph-2 red-text">
+                See what's happening next
+              </a>
+            </div>
+            <div class="community-announcements-container">
+              <EventComp items={communityData.events} page={"community"} />
+            </div>
+          </div>
         </>
-    )
-}
+      ) : (
+        <></>
+      )}
+    </>
+  );
+};
 
 export default CommunityPage;

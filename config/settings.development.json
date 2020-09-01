@@ -75,7 +75,9 @@
         "degreeInterests": "getting an MD / MBA",
         "funFacts": "I like sailing"
       },
-      "community": "broadneck"
+      "community": "broadneck",
+      "position": "President"
+      
     },
     {
       "email": "ishan@foo.com",
@@ -87,7 +89,9 @@
         "degreeInterests": "getting an MD / MBA",
         "funFacts": "I like sailing"
       },
-      "community": "severna-park"
+      "community": "severna-park",
+      "position": "President"
+     
     }
   ],
   "defaultNews": [
@@ -97,7 +101,8 @@
       "description": "Chinese companies are at the forefront of global efforts to create a vaccine for the coronavirus, with more than half a dozen candidates in clinical development...",
       "user": "ishan@foo.com",
       "timePosted": 1595632530500,
-      "community": "broadneck"
+      "community": "broadneck",
+      "image": "https://i.imgur.com/ViPItf1.jpg"
     },
     {
       "newsLink": "https://www.nature.com/articles/d41586-020-02244-1",
@@ -105,7 +110,8 @@
       "description": "Chinese companies are at the forefront of global efforts to create a vaccine for the coronavirus, with more than half a dozen candidates in clinical development...",
       "user": "ishan@foo.com",
       "timePosted": 1595632530500,
-      "community": "severna-park"
+      "community": "severna-park",
+      "image": "https://i.imgur.com/ViPItf1.jpg"
     }
   ],
   "defaultAnnouncements": [
@@ -114,7 +120,7 @@
       "content": "New updates are rolling out soon...",
       "user": "paxton@foo.com",
       "contact": "paxton@foo.com",
-     
+      "image": "https://i.imgur.com/ViPItf1.jpg",
       "timePosted": 1595632530500,
       "community": "broadneck"
     },
@@ -123,7 +129,7 @@
       "content": "New updates are rolling out soon...",
       "user": "ishan@foo.com",
       "contact": "ishan@foo.com",
-     
+      "image": "https://i.imgur.com/ViPItf1.jpg",
       "timePosted": 1595632530500,
       "community": "severna-park"
     },
@@ -132,7 +138,7 @@
       "content": "New updates are rolling out soon...",
       "user": "ishanadmin@foo.com",
       "contact": "ishanadmin@foo.com",
- 
+      "image": "https://i.imgur.com/ViPItf1.jpg",
       "timePosted": 1595632530500,
       "community": "super-admin"
     }
@@ -144,36 +150,41 @@
       "description": "A test generic event",
       "eventType": "Meeting",
       "owner": "ishan@foo.com",
-      "eventPostedDate": 1595632530500,
-      "eventOccuranceDate": 1595632530500,
-      "community": "severna-park"
+      "eventPostedDate": 1598760240058,
+      "eventOccuranceDate": 1598760240058,
+      "community": "severna-park",
+      "image": "https://i.imgur.com/ViPItf1.jpg"
+
     },
     {
       "title": "Hospital Broadneck Event",
       "description": "A test generic event",
       "eventType": "Meeting",
       "owner": "paxton@foo.com",
-      "eventPostedDate": 1595632530500,
-      "eventOccuranceDate": 1595632530500,
-      "community": "broadneck"
+      "eventPostedDate": 1598760240058,
+      "eventOccuranceDate": 1598760240058,
+      "community": "broadneck",
+      "image": "https://i.imgur.com/ViPItf1.jpg"
     },
     {
       "title": "Hospital Generic Event",
       "description": "A test generic event",
       "eventType": "Meeting",
       "owner": "ishan@foo.com",
-      "eventPostedDate": 1595632530500,
-      "eventOccuranceDate": 1595632530500,
-      "community": "broadneck"
+      "eventPostedDate": 1598760240058,
+      "eventOccuranceDate": 1598760240058,
+      "community": "broadneck",
+      "image": "https://i.imgur.com/ViPItf1.jpg"
     },
     {
       "title": "Hospital Generic Event",
       "description": "A test generic event",
       "eventType": "Meeting",
       "owner": "paxton@foo.com",
-      "eventPostedDate": 1595632530500,
-      "eventOccuranceDate": 1595632530500,
-      "community": "severna-park"
+      "eventPostedDate": 1598760240058,
+      "eventOccuranceDate": 1598760240058,
+      "community": "broadneck",
+      "image": "https://i.imgur.com/ViPItf1.jpg"
     }
   ],
   "defaultBlogs": [

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Meteor } from 'meteor/meteor';
-import { DetailsPicker, useAccount } from "../utils";
+import { DetailPicker, useAccount } from "../utils";
 const DetailPage = () => {
 
 
@@ -12,6 +12,7 @@ const DetailPage = () => {
     const [toggleState, setToggleState] = useState(false)
 
     React.useEffect(() => {
+     
         Meteor.call("retrieveDetailInfo", componentId, documentId,  (e, r) => {
             console.log(e)
             if (!e) {
@@ -30,7 +31,7 @@ const DetailPage = () => {
    <>
    {toggleState ? 
  <div>
- <DetailsPicker toggleState={toggleState} detailInfo={detailInfo}/> 
+ <DetailPicker toggleState={toggleState} detailInfo={detailInfo}/> 
  </div> :
   <div>
       Loading
