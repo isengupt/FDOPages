@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-const HeroImage = ({name}) => {
+const HeroImage = ({name, image}) => {
   return (
-    <div class="fundraising-hero-image">
+    <div class="fundraising-hero-image"
+      style={{
+                backgroundImage: `url(${image})`,
+                backgroundSize: "cover"
+              }}
+    >
       <div class="community-hero-text">
         <h1 class="heading">
           <span class="big-red-text">{name} </span>Community <br />

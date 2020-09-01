@@ -1,6 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
+import 'uniforms-bridge-simple-schema-2';
+import ImageField from '../../ui/utils/ImageField'
 
 /** Define a Mongo collection to hold the data. */
 const Announcements = new Mongo.Collection('Announcements');
@@ -10,6 +12,11 @@ const Announcements = new Mongo.Collection('Announcements');
 const AnnouncementFormSchema = new SimpleSchema({
   title: String,
   content: String,
+  image: {
+    type: Object,
+    uniforms: ImageField,
+    optional: true
+  },
  
 })
 
@@ -41,9 +48,12 @@ const AnnouncementsSchema = new SimpleSchema({
     label: "Community level the announcement is intended for"
   },
   image: {
-    type: String,
-    label: "Image url link"
-  }
+    type: Object,
+    uniforms: ImageField,
+    optional: true
+  },
+  'image.url': String,
+  'image.public_id': String,
 
 
 

@@ -33,7 +33,7 @@ const ProfileFormSchema = new SimpleSchema({
   gradYear:Date,
   interests: Interests,
 
-  logo: {
+  image: {
     type: Object,
     uniforms: ImageField,
     optional: true

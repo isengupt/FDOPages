@@ -1,6 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
+import 'uniforms-bridge-simple-schema-2';
+import ImageField from '../../ui/utils/ImageField'
 
 /** Define a Mongo collection to hold the data. */
 const UpcomingEvents = new Mongo.Collection('UpcomingEvents');
@@ -14,7 +16,11 @@ const UpcomingEventFormSchema = new SimpleSchema({
       defaultValue: 'Meeting',
   },
   eventOccuranceDate: Date,
-
+  image: {
+    type: Object,
+    uniforms: ImageField,
+    optional: true
+  }
 
 })
 
@@ -53,9 +59,12 @@ const UpcomingEventschema = new SimpleSchema({
   
   },
   image: {
-    type:String,
-    label: "Image url for the event"
-  }
+    type: Object,
+    uniforms: ImageField,
+    optional: true
+  },
+  'image.url': String,
+  'image.public_id': String,
   
 }, { tracker: Tracker });
 

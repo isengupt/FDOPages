@@ -1,6 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
+import 'uniforms-bridge-simple-schema-2';
+import ImageField from '../../ui/utils/ImageField'
 
 /** Define a Mongo collection to hold the data. */
 const Videos = new Mongo.Collection('Videos');
@@ -28,6 +30,11 @@ const VideoFormSchema = new SimpleSchema({
   videoInput: {
     type: String,
     
+  },
+    image: {
+    type: Object,
+    uniforms: ImageField,
+    optional: true
   },
 
 })
@@ -65,7 +72,14 @@ const VideoSchema = new SimpleSchema({
   community: {
     type: String,
     label: "Community level the video was intendend for"
-  }
+  },
+  image: {
+    type: Object,
+    uniforms: ImageField,
+    optional: true
+  },
+  'image.url': String,
+  'image.public_id': String,
  
 
   

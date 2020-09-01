@@ -35,7 +35,11 @@ const EventComp = ({ items, page }) => {
     {items.map(obj => 
     <div class="event-card">
        
-            <div id="w-node-407c8d1a3d20-6578b560" class="event-card-image">
+            <div id="w-node-407c8d1a3d20-6578b560" class="event-card-image"
+             style={{
+                backgroundImage: `url(${obj.image.url})`, backgroundSize: "cover"
+              }}
+            >
               <div class="event-card-background-image"></div>
             </div>
             <div class="event-card-text">
@@ -71,8 +75,12 @@ const EventComp = ({ items, page }) => {
     {items.map(obj => 
     <div class="event-card">
        
-            <div id="w-node-407c8d1a3d20-6578b560" class="event-card-image">
-              <div class="event-card-background-image"></div>
+            <div id="w-node-407c8d1a3d20-6578b560" class="event-card-image" 
+            
+            >
+              <div class="event-card-background-image" style={{
+                backgroundImage: `url(${obj.image.url})`, backgroundSize: "cover"
+              }}></div>
             </div>
             <div class="event-card-text">
               <div class="event-card-text-top">

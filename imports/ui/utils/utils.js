@@ -566,8 +566,14 @@ export const ListComponents = {
 
           {props.listInfo.map((announcement) => (
             <div key={announcement._id} class="announcement-long-component">
-              <div id="w-node-756339c0e788-6578b560" class="event-card-image">
-                <div class="event-card-background-image"></div>
+              <div id="w-node-756339c0e788-6578b560" class="event-card-image" 
+              
+              >
+                <div class="event-card-background-image" 
+                 style={{
+                backgroundImage: `url(${announcement.image.url})`
+              }}
+                ></div>
               </div>
               <div class="event-card-text">
                 <div class="announcement-card-text-top">
@@ -611,8 +617,13 @@ export const ListComponents = {
 
           {props.listInfo.map((announcement) => (
             <div key={announcement._id} class="announcement-long-component">
-              <div id="w-node-756339c0e788-6578b560" class="event-card-image">
-                <div class="event-card-background-image"></div>
+              <div id="w-node-756339c0e788-6578b560" class="event-card-image"  >
+                <div class="event-card-background-image"
+                style={{
+                backgroundImage: `url(${announcement.image.url})`
+              }}
+                
+                ></div>
               </div>
               <div class="event-card-text">
                 <div class="announcement-card-text-top">
@@ -669,10 +680,11 @@ export const ListComponents = {
     }, []);
 
     function showEvents(events) {
-      return;
+      return (
       <div>
         <EventComp items={events} />
-      </div>;
+      </div>
+      )
     }
 
     if (checkList(props.listInfo)) {
@@ -784,7 +796,11 @@ export const ListComponents = {
             
 
               <div key={update._id} class="news-update-long-component">
-                <div id="w-node-4956a7d5840c-a7d5840b" class="event-card-image">
+                <div id="w-node-4956a7d5840c-a7d5840b" class="event-card-image" 
+                 style={{
+                backgroundImage: `url(${update.image.url})`
+              }}
+                >
                   <div class="news-update-background-image"></div>
                 </div>
                 <div class="news-card-text">
@@ -948,7 +964,11 @@ export const ListComponents = {
           </div>
           {props.listInfo.map((video) => (
             <div class="event-card">
-              <div id="w-node-e51a08e301b0-8378b568" class="event-card-image">
+              <div id="w-node-e51a08e301b0-8378b568" class="event-card-image"
+               style={{
+                backgroundImage: `url(${video.image.url})`
+              }}
+              >
                 <div class="video-screen">
                   <div class="video-time">{video.videoType}</div>
                 </div>
@@ -1021,6 +1041,9 @@ export const ListComponents = {
               <div
                 id="w-node-afb01c311b6e-5d78b561"
                 class="event-card-image-copy"
+                style={{
+                backgroundImage: `url(${profile.image.url})`
+              }}
               >
                 <div class="community-profile-image">
                   <div class="online-indicator">Online</div>
@@ -1040,7 +1063,7 @@ export const ListComponents = {
                       >
                         <div>
                           <div class="news-update-author">{profile.user}</div>
-                          <div class="news-date">President</div>
+                          <div class="news-date">{profile.position}</div>
                         </div>
                       </div>
                     </div>

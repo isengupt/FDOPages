@@ -83,14 +83,17 @@ const LoginSection = ({ loginFormState }) => {
         }
         console.log(email, password, school.value)
         console.log(`  Creating user ${email}.`);
-       const userID = Accounts.createUser({
-          username: email,
-          email: email,
-          password: password,
-        })
+      
         const scope = school.value
     
-        Roles.addUsersToRoles(userID, ["member"], scope);   
+        
+         Meteor.call("createMember", email, password, scope, (e, r) => {
+            console.log(e)
+            if (!e) {
+                console.log(r)
+              
+            }
+        })
         
         
     

@@ -52,7 +52,11 @@
       "timePosted": 1595632530500,
       "videoType": "Movie",
       "videoInput": "https://www.youtube.com/watch?v=9DYaBzFPbcs",
-      "community": "broadneck"
+      "community": "broadneck",
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     }, 
     {
       "title" : "COVID-19 Health Tips",
@@ -61,7 +65,11 @@
       "timePosted": 1595632530500,
       "videoType": "Movie",
       "videoInput": "https://www.youtube.com/watch?v=9DYaBzFPbcs",
-      "community": "severna-park"
+      "community": "severna-park",
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     }
   ],
   "defaultProfiles": [
@@ -76,7 +84,11 @@
         "funFacts": "I like sailing"
       },
       "community": "broadneck",
-      "position": "President"
+      "position": "President",
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
       
     },
     {
@@ -90,7 +102,11 @@
         "funFacts": "I like sailing"
       },
       "community": "severna-park",
-      "position": "President"
+      "position": "President",
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
      
     }
   ],
@@ -102,7 +118,10 @@
       "user": "ishan@foo.com",
       "timePosted": 1595632530500,
       "community": "broadneck",
-      "image": "https://i.imgur.com/ViPItf1.jpg"
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     },
     {
       "newsLink": "https://www.nature.com/articles/d41586-020-02244-1",
@@ -111,7 +130,10 @@
       "user": "ishan@foo.com",
       "timePosted": 1595632530500,
       "community": "severna-park",
-      "image": "https://i.imgur.com/ViPItf1.jpg"
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     }
   ],
   "defaultAnnouncements": [
@@ -122,7 +144,11 @@
       "contact": "paxton@foo.com",
       "image": "https://i.imgur.com/ViPItf1.jpg",
       "timePosted": 1595632530500,
-      "community": "broadneck"
+      "community": "broadneck",
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     },
     {
       "title": "We're helping everything",
@@ -131,7 +157,11 @@
       "contact": "ishan@foo.com",
       "image": "https://i.imgur.com/ViPItf1.jpg",
       "timePosted": 1595632530500,
-      "community": "severna-park"
+      "community": "severna-park",
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     },
     {
       "title": "We're helping everything",
@@ -140,7 +170,11 @@
       "contact": "ishanadmin@foo.com",
       "image": "https://i.imgur.com/ViPItf1.jpg",
       "timePosted": 1595632530500,
-      "community": "super-admin"
+      "community": "super-admin",
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     }
 
   ],
@@ -153,7 +187,10 @@
       "eventPostedDate": 1598760240058,
       "eventOccuranceDate": 1598760240058,
       "community": "severna-park",
-      "image": "https://i.imgur.com/ViPItf1.jpg"
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
 
     },
     {
@@ -164,7 +201,10 @@
       "eventPostedDate": 1598760240058,
       "eventOccuranceDate": 1598760240058,
       "community": "broadneck",
-      "image": "https://i.imgur.com/ViPItf1.jpg"
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     },
     {
       "title": "Hospital Generic Event",
@@ -174,7 +214,10 @@
       "eventPostedDate": 1598760240058,
       "eventOccuranceDate": 1598760240058,
       "community": "broadneck",
-      "image": "https://i.imgur.com/ViPItf1.jpg"
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     },
     {
       "title": "Hospital Generic Event",
@@ -184,7 +227,10 @@
       "eventPostedDate": 1598760240058,
       "eventOccuranceDate": 1598760240058,
       "community": "broadneck",
-      "image": "https://i.imgur.com/ViPItf1.jpg"
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      }
     }
   ],
   "defaultBlogs": [
@@ -326,7 +372,7 @@
   ],
   "defaultCommunites":[
     {
-      "chapterName": "Severna Park High School",
+      "chapterName": "Severna Park",
       "leadership": [
         {"position": "President", "holder": "Paxton Paganelli"},
         {"position": "Vice President", "holder": "Paxton Paganelli"},
@@ -357,6 +403,10 @@
           "Don't hurt people"
         ]
       },
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
+      },
     
       "imageGallery": [
         "https://i.imgur.com/ViPItf1.jpg",
@@ -372,7 +422,7 @@
       }
     },
     {
-      "chapterName": "Broadneck High School",
+      "chapterName": "Broadneck",
       "leadership": [
         {"position": "President", "holder": "Paxton Paganelli"},
         {"position": "Vice President", "holder": "Paxton Paganelli"},
@@ -415,6 +465,10 @@
       "fundraising": {
         "fundName": "The fund",
         "fundLink": "http://www.google.com"
+      },
+      "image": {
+        "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+        "public_id": "tph2hnxlphkykwr3bbpc"
       }
     }
   ]

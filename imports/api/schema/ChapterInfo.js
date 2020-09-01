@@ -1,6 +1,8 @@
 import { Mongo } from "meteor/mongo";
 import SimpleSchema from "simpl-schema";
 import { Tracker } from 'meteor/tracker';
+import 'uniforms-bridge-simple-schema-2';
+import ImageField from '../../ui/utils/ImageField'
 
 const ChapterInfo = new Mongo.Collection("ChapterInfo");
 
@@ -128,7 +130,14 @@ const ChapterSchema = new SimpleSchema({
     fundraising: {
         type: Fundraising,
         label: "Fundrasing links and methods"
-    }
+    },
+    image: {
+        type: Object,
+        uniforms: ImageField,
+        optional: true
+      },
+      'image.url': String,
+      'image.public_id': String,
 }, { tracker: Tracker });
 
 ChapterInfo.attachSchema(ChapterSchema);

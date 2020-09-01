@@ -1,9 +1,11 @@
 import { Meteor } from "meteor/meteor";
 import { About } from '../schema/About'
+import { Roles } from 'meteor/alanning:roles';
 import { ChapterInfo } from "../schema/ChapterInfo";
 import { UpcomingEvents } from "../schema/UpcomingEvent";
 import { Announcements, } from "../schema/Announcements";
 import { Blogs } from "../schema/Blogs";
+import { Accounts } from "meteor/accounts-base";
 import { Profile } from "../schema/Profile";
 import { LearnLinks } from "../schema/LearnLinks";
 import { Videos } from "../schema/Video";
@@ -16,6 +18,23 @@ import { NewsUpdate } from "../schema/NewsUpdate";
 
 
 Meteor.methods({
+    createMember: function(email, password, scope) {
+       
+            console.log(`  Creating user ${email}.`);
+            const userID = Accounts.createUser({
+              username: email,
+              email: email,
+              password: password,
+            });
+              if (scope) {
+              Roles.addUsersToRoles(userID, ['member'], scope);   
+              } else {
+                Roles.addUsersToRoles(userID, ['member'],scope);   
+              }
+            
+              return true
+          
+    },
     getCurrentAboutData: function () {
         let aboutData = About.findOne({})
 
@@ -40,6 +59,8 @@ Meteor.methods({
                     events = UpcomingEvents.find({'community': roles.scope}).fetch()
                     announcements = Announcements.find({'community': roles.scope}).fetch()
                 let formattedData = {
+                    "chapterName": chapterData.chapterName,
+                    "image": chapterData.image,
                     "images": chapterData.imageGallery,
                     "initiatives": chapterData.initiatives.chapterInitiatives,
                     "leadership": chapterData.leadership,

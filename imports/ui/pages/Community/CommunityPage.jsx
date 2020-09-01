@@ -40,7 +40,7 @@ const CommunityPage = () => {
           <div class="section">
             <div class="w-layout-grid grid-4">
               <div class="dashboard-main-page-info">
-                <HeroImage name={communityData.name}/>
+                <HeroImage name={communityData.chapterName} image={communityData.image.url}/>
               </div>
             </div>
           </div>
