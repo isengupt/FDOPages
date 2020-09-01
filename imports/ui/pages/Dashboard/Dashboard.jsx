@@ -5,7 +5,7 @@ import { useTracker } from "meteor/react-meteor-data";
 import { UpcomingEvents } from '../../../api/schema/UpcomingEvent';
 import { Announcements } from '../../../api/schema/Announcements';
 import { NewsUpdate } from '../../../api/schema/NewsUpdate';
-
+import { Icon, Menu } from "semantic-ui-react";
 
 const Dashboard = () => {
 
@@ -14,6 +14,14 @@ const Dashboard = () => {
  
 
 
+
+  const [activeItem, setActiveItem] = useState("announcement");
+
+  const handleItemClick = (e, { name }) => {
+    setActiveItem(name);
+    console.log(name);
+    setToggleState(name);
+  };
 
 
   const toggleStatePick = (state) => {
@@ -69,31 +77,41 @@ const Dashboard = () => {
     <div class="section">
       <div class="w-layout-grid grid-4">
         <div class="dashboard-sidebar-navigation">
-          <div className="dashboard-sidebar-navigation-item"  onClick={(event) =>
-                        event.stopPropagation() ||
-                        event.preventDefault() ||
-                        toggleStatePick("announcement")
-                    }>
-            <div><span class="fa-icon"></span></div>
-            <div class="dashboard-sidebar-item-text">Announcements</div>
-          </div>
-          <div class="dashboard-sidebar-navigation-item"  onClick={(event) =>
-                        event.stopPropagation() ||
-                        event.preventDefault() ||
-                        toggleStatePick("event")
-                    }>
-            <div><span class="fa-icon"></span></div>
-            <div className="dashboard-sidebar-item-text">Events</div>
-          </div>
-         
-          <div className="dashboard-sidebar-navigation-item"  onClick={(event) =>
-                        event.stopPropagation() ||
-                        event.preventDefault() ||
-                        toggleStatePick("newsupdate")
-                    }>
-            <div><span class="fa-icon"></span></div>
-            <div class="dashboard-sidebar-item-text">Updates</div>
-          </div>
+        <Menu vertical>
+                  <Menu.Item
+                    name="announcement"
+                    active={activeItem === "announcement"}
+                    onClick={handleItemClick}
+                  >
+                    <div class="dashboard-sidebar-navigation-item">
+                      <div></div>
+                      <div class="dashboard-sidebar-item-text">Announcements</div>
+                    </div>
+                  </Menu.Item>
+
+                  <Menu.Item
+                    name="newsupdate"
+                    active={activeItem === "newsupdate"}
+                    onClick={handleItemClick}
+                  >
+                    <div class="dashboard-sidebar-navigation-item">
+                      <div></div>
+                      <div class="dashboard-sidebar-item-text">Updates</div>
+                    </div>
+                  </Menu.Item>
+
+                  <Menu.Item
+                    name="event"
+                    active={activeItem === "event"}
+                    onClick={handleItemClick}
+                  >
+                    <div class="dashboard-sidebar-navigation-item">
+                      <div></div>
+                      <div class="dashboard-sidebar-item-text">Events</div>
+                    </div>
+                  </Menu.Item>
+                </Menu>
+        
         </div>
         <div class="dashboard-main-page-info">
                     <ToggledData toggleState={toggleState}/>

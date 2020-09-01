@@ -702,25 +702,7 @@ export const ListComponents = {
                       <span class="fa-icon"></span>
                     </div>
                   </div>
-                  <div>
-                    <div data-hover="" data-delay="0" class="w-dropdown">
-                      <div class="dropdown-toggle w-dropdown-toggle">
-                        <div class="icon-2 w-icon-dropdown-toggle"></div>
-                        <div class="week-option-input">Dropdown</div>
-                      </div>
-                      <nav class="w-dropdown-list">
-                        <a href="#" class="w-dropdown-link">
-                          Link 1
-                        </a>
-                        <a href="#" class="w-dropdown-link">
-                          Link 2
-                        </a>
-                        <a href="#" class="w-dropdown-link">
-                          Link 3
-                        </a>
-                      </nav>
-                    </div>
-                  </div>
+                 
                   <div class="arrow-containers">
                     <div>
                       <span class="fa-icon"></span>
@@ -1943,14 +1925,16 @@ export const CreateFunctions = {
     );
   },
   profileCreate: function profileCreate(data, formRef, community) {
-    const { email, aboutMe, gradYear, interests } = data;
+    const { email, aboutMe, gradYear, interests, logo } = data;
+
     console.log(data)
-    /* const user = Meteor.user().username;
+   const user = Meteor.user().username;
+   console.log(user)
 
     console.log(community);
 
     Profile.insert(
-      { email, aboutMe, gradYear, interests, user, community },
+      { email, aboutMe, gradYear, interests, logo, user, community },
       (err) => {
         if (err) {
           swal("Error", err.message, "error");
@@ -1959,7 +1943,7 @@ export const CreateFunctions = {
           formRef.reset();
         }
       }
-    ); */
+    ); 
   },
   newsCreate: function newsCreate(data, formRef, community) {
     const { title, description, newsLink } = data;
