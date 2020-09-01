@@ -26,12 +26,12 @@ const SignUpForm = ({
     <div className="mission-signup">
       <div className="text-block-88">Continue your mission.</div>
       <div className="mission-small">
-        New here? 
+       Already have an account?
         <span
           className="sign-up-span"
           onClick={(event) => event.preventDefault() || toggleState("signup")}
         >
-          Sign up at this link
+          Click here.
         </span>
       </div>
     </div>
@@ -95,8 +95,9 @@ const SignUpForm = ({
           onChange={(event) => setConfirmPassword(event.target.value)}
         />
   <Select
+placeholder="School"
         value={school}
-        onChange={() => handleChange()}
+        onChange={(value) => handleChange(value)}
         options={options}
       />
 

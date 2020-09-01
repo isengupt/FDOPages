@@ -2016,7 +2016,7 @@ li {
 }
 
 .nav-link {
-  padding: 10px 16px;
+  padding: 10px 16px !important;
   opacity: 0.8;
   -webkit-transition: opacity 200ms ease;
   transition: opacity 200ms ease;
@@ -2186,7 +2186,7 @@ li {
   -ms-flex-direction: row;
   flex-direction: row;
   
-  align-items: center;
+  align-items: baseline;
   border-style: none;
   border-width: 1px;
   border-color: #dddde1;
@@ -2935,6 +2935,7 @@ li {
 }
 
 .header-component {
+  
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3022,7 +3023,7 @@ li {
   display: -ms-flexbox;
   display: flex;
   width: 100vw;
-  min-height: 600px;
+  min-height: 520px;
   padding-bottom: 0px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3067,8 +3068,8 @@ li {
 
 .dashboard-sidebar-text {
   padding-right: 10px;
-  padding-left: 10px;
-  font-size: 16px;
+  
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -4050,6 +4051,7 @@ li {
 
 .big-red-text {
   color: #f2545b;
+  text-transform: uppercase;
 }
 
 .heading {
@@ -4079,8 +4081,8 @@ li {
 
 .donate-now-button {
   display: inline-block;
-  padding: 5px 15px;
-  border-radius: 15px;
+  padding: 7px 20px;
+  border-radius: 20px;
   background-color: #f2545b;
 }
 
@@ -4088,7 +4090,8 @@ li {
   display: inline-block;
   color: #fff;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
+
 }
 
 .community-heading-component {

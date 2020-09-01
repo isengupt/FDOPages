@@ -521,7 +521,7 @@ export const ListComponents = {
 <div class="dashboard-title-component">
             <div class="dashboard-title-text-item">
               <div>
-                <span class="fa-icon"></span>
+                
               </div>
               <div class="dashboard-sidebar-text">Blog</div>
             </div>
@@ -555,7 +555,7 @@ export const ListComponents = {
           <div class="dashboard-title-component">
             <div class="dashboard-title-text-item">
               <div>
-                <span class="fa-icon"></span>
+                
               </div>
               <div class="dashboard-sidebar-text">Announcements</div>
             </div>
@@ -681,7 +681,7 @@ export const ListComponents = {
           <div class="dashboard-title-component">
             <div class="dashboard-title-text-item">
               <div>
-                <span class="fa-icon"></span>
+                
               </div>
               <div class="dashboard-sidebar-text">Events</div>
             </div>
@@ -789,7 +789,7 @@ export const ListComponents = {
 <div class="dashboard-title-component">
             <div class="dashboard-title-text-item">
               <div>
-                <span class="fa-icon"></span>
+                
               </div>
               <div class="dashboard-sidebar-text">News</div>
             </div>
@@ -799,20 +799,7 @@ export const ListComponents = {
           </div>
           {props.listInfo.map((update) => (
             <>
-              <div class="dashboard-title-component">
-                <div class="dashboard-title-text-item">
-                  <div>
-                    <span class="fa-icon"></span>
-                  </div>
-                  <div class="dashboard-sidebar-text">News Updates</div>
-                </div>
-                <a
-                  href="/create/newsupdate"
-                  class="add-item-black-button w-button"
-                >
-                  Add
-                </a>
-              </div>
+            
 
               <div key={update._id} class="news-update-long-component">
                 <div id="w-node-4956a7d5840c-a7d5840b" class="event-card-image">
@@ -873,7 +860,7 @@ export const ListComponents = {
           <div class="dashboard-title-component">
             <div class="dashboard-title-text-item">
               <div>
-                <span class="fa-icon"></span>
+                
               </div>
               <div class="dashboard-sidebar-text">Forums</div>
             </div>
@@ -937,7 +924,7 @@ export const ListComponents = {
           <div class="dashboard-title-component">
             <div class="dashboard-title-text-item">
               <div>
-                <span class="fa-icon"></span>
+                
               </div>
               <div class="dashboard-sidebar-text">Interviews</div>
             </div>
@@ -969,7 +956,7 @@ export const ListComponents = {
           <div class="dashboard-title-component">
             <div class="dashboard-title-text-item">
               <div>
-                <span class="fa-icon"></span>
+                
               </div>
               <div class="dashboard-sidebar-text">Videos</div>
             </div>
@@ -1016,7 +1003,7 @@ export const ListComponents = {
           <div class="dashboard-title-component">
             <div class="dashboard-title-text-item">
               <div>
-                <span class="fa-icon"></span>
+                
               </div>
               <div class="dashboard-sidebar-text">Links</div>
             </div>
@@ -1096,6 +1083,17 @@ export const ListComponents = {
     if (checkList(props.listInfo)) {
       return (
         <>
+         <div class="dashboard-title-component">
+            <div class="dashboard-title-text-item">
+              <div>
+                
+              </div>
+              <div class="dashboard-sidebar-text">Interviews</div>
+            </div>
+            <a href="/create/event" class="add-item-black-button w-button">
+              Add
+            </a>
+          </div>
           {props.listInfo.map((interview) => (
             <>
               <div key={interview._id} class="interview-component">

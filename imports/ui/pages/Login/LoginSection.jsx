@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Meteor } from "meteor/meteor";
+import { Roles } from 'meteor/alanning:roles';
 import toastr from "../../utils/toastr";
 import validate from "validate.js";
 import { Accounts } from "meteor/accounts-base";
@@ -22,6 +23,7 @@ const LoginSection = ({ loginFormState }) => {
     const [school, setSchool] = useState(null)
     const handleChange = selectedOption => {
      setSchool(selectedOption)
+     console.log(school)
     };
   
     const toggleState = (state) => {
@@ -79,9 +81,19 @@ const LoginSection = ({ loginFormState }) => {
           setError("Passwords don't match");
           return;
         }
-        Accounts.createUser({ email, password }, (e, r) => {
-          if (e) setError(e.reason);
-        });
+        console.log(email, password, school.value)
+        console.log(`  Creating user ${email}.`);
+       const userID = Accounts.createUser({
+          username: email,
+          email: email,
+          password: password,
+        })
+        const scope = school.value
+    
+        Roles.addUsersToRoles(userID, ["member"], scope);   
+        
+        
+    
       };
     
       const login = () => {

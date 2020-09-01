@@ -4,8 +4,10 @@ import useModal from "../components/useModal";
 import LoginSection from "../../pages/Login/LoginSection";
 import ActionButton from "../components/ActionButton";
 import { useAccount } from "../utils";
+import { Menu, Responsive, Dropdown, DropdownMenu } from 'semantic-ui-react';
 
 const Navbar = () => {
+  const [activeItem, setActiveItem] = useState('Laptop Item')
   const { isShowing, toggle } = useModal();
   const [showLogin, setShowLogin] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -38,37 +40,39 @@ const Navbar = () => {
 
   return (
     <div
-      data-collapse="medium"
-      data-animation="default"
-      data-duration="400"
+   
       id="Navigation"
       role="banner"
       class="header-component w-nav"
     >
       <div class="navigation-container">
         <div class="navigation-left">
-          <a href="/" class="brand w-nav-brand">FDO</a>
+          <a href="/" class="brand w-nav-brand">
+            FDO
+          </a>
         </div>
-        <div class="navigation-right">
-          <div class="menu-button w-nav-button">
-            <div class="icon w-icon-nav-menu"></div>
-          </div>
+
+        
+        <div class="navigation-right ">
+
           <nav role="navigation" class="nav-menu w-nav-menu">
-            <a href="/" class="nav-link w-nav-link">
+            <a href="/" class="nav-link w-nav-link active">
               About
             </a>
+
             {user ? (
               <>
-            <a href="/community" class="nav-link w-nav-link">
-              Community
-            </a>
-            <a href="/resources" class="nav-link w-nav-link">
-              Resources
-            </a>
+                <a href="/community" class="nav-link w-nav-link">
+                  Community
+                </a>
+                <a href="/resources" class="nav-link w-nav-link">
+                  Resources
+                </a>
               </>
-            ) :
-            <>
-            </>}
+            ) : (
+              <></>
+            )}
+
             {showLogin ? (
               <>
                 <button
