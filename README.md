@@ -13,4 +13,6 @@ Run "meteor npm install"
 
 Run "meteor npm run start" to startup of the file with some default data (can be changed by editing the file in the config directory)
 
+Deployed temporarily at http://futuredocs.meteorapp.com/ 
+
 

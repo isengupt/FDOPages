@@ -1,0 +1,485 @@
+{
+    "galaxy.meteor.com": {
+       "env": {
+        
+        "MONGO_URL": "mongodb+srv://ishan1234:ishan1234@meteorapp.zu5mp.mongodb.net/MeteorApp?retryWrites=true&w=majority"
+        
+       }
+     },
+   
+      "defaultAccounts": [
+        {
+          "email": "ishan@foo.com",
+          "password": "#eNcryptedpass1234",
+          "roles": ["member"],
+          "scope": "severna-park"
+        },
+        {
+          "email": "paxton@foo.com",
+          "password": "#eNcryptedpass1234",
+          "roles": ["member"],
+          "scope": "broadneck"
+        },
+        {
+          "email": "paxtonadmin@foo.com",
+          "password": "#eNcryptedpass1234",
+          "roles": ["super-admin"],
+          "scope": "broadneck"
+        },
+        {
+          "email": "ishanadmin@foo.com",
+          "password": "#eNcryptedpass1234",
+          "roles": ["super-admin"],
+          "scope": "severna-park"
+        },
+        {
+          "email": "ishanblog@foo.com",
+          "password": "#eNcryptedpass1234",
+          "roles": ["blogger"],
+          "scope": "severna-park"
+        },
+        {
+          "email": "paxtonblog@foo.com",
+          "password": "#eNcryptedpass1234",
+          "roles": ["blogger", "mentor"],
+          "scope": "broadneck"
+        },
+        {
+          "email": "paxtonorganizer@foo.com",
+          "password": "#eNcryptedpass1234",
+          "roles": ["organizer", "mentor"],
+          "scope": "broadneck"
+        }
+    
+      ],
+      "defaultVideos" : [
+        {
+          "title" : "COVID-19 Health Tips",
+          "description": "Video on COVID-19 information",
+          "user": "ishan@foo.com",
+          "timePosted": 1595632530500,
+          "videoType": "Movie",
+          "videoInput": "https://www.youtube.com/watch?v=9DYaBzFPbcs",
+          "community": "broadneck",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        }, 
+        {
+          "title" : "COVID-19 Health Tips",
+          "description": "Video on COVID-19 information",
+          "user": "ishan@foo.com",
+          "timePosted": 1595632530500,
+          "videoType": "Movie",
+          "videoInput": "https://www.youtube.com/watch?v=9DYaBzFPbcs",
+          "community": "severna-park",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        }
+      ],
+      "defaultProfiles": [
+        {
+          "email": "paxton@foo.com",
+          "aboutMe": "I am interested in medicine",
+          "user": "paxton@foo.com",
+          "gradYear": "2019",
+          "interests": {
+            "healthInterests": "Medicine",
+            "degreeInterests": "getting an MD / MBA",
+            "funFacts": "I like sailing"
+          },
+          "community": "broadneck",
+          "position": "President",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+          
+        },
+        {
+          "email": "ishan@foo.com",
+          "aboutMe": "I am interested in medicine",
+          "user": "ishan@foo.com",
+          "gradYear": "2019",
+          "interests": {
+            "healthInterests": "Medicine",
+            "degreeInterests": "getting an MD / MBA",
+            "funFacts": "I like sailing"
+          },
+          "community": "severna-park",
+          "position": "President",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+         
+        }
+      ],
+      "defaultNews": [
+        {
+          "newsLink": "https://www.nature.com/articles/d41586-020-02244-1",
+          "title": "China’s coronavirus vaccines are leaping ahead – but face challenges as virus wanes",
+          "description": "Chinese companies are at the forefront of global efforts to create a vaccine for the coronavirus, with more than half a dozen candidates in clinical development...",
+          "user": "ishan@foo.com",
+          "timePosted": 1595632530500,
+          "community": "broadneck",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        },
+        {
+          "newsLink": "https://www.nature.com/articles/d41586-020-02244-1",
+          "title": "China’s coronavirus vaccines are leaping ahead – but face challenges as virus wanes",
+          "description": "Chinese companies are at the forefront of global efforts to create a vaccine for the coronavirus, with more than half a dozen candidates in clinical development...",
+          "user": "ishan@foo.com",
+          "timePosted": 1595632530500,
+          "community": "severna-park",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        }
+      ],
+      "defaultAnnouncements": [
+        {
+          "title": "We're changing everything",
+          "content": "New updates are rolling out soon...",
+          "user": "paxton@foo.com",
+          "contact": "paxton@foo.com",
+          "image": "https://i.imgur.com/ViPItf1.jpg",
+          "timePosted": 1595632530500,
+          "community": "broadneck",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        },
+        {
+          "title": "We're helping everything",
+          "content": "New updates are rolling out soon...",
+          "user": "ishan@foo.com",
+          "contact": "ishan@foo.com",
+          "image": "https://i.imgur.com/ViPItf1.jpg",
+          "timePosted": 1595632530500,
+          "community": "severna-park",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        },
+        {
+          "title": "We're helping everything",
+          "content": "New updates are rolling out soon...",
+          "user": "ishanadmin@foo.com",
+          "contact": "ishanadmin@foo.com",
+          "image": "https://i.imgur.com/ViPItf1.jpg",
+          "timePosted": 1595632530500,
+          "community": "super-admin",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        }
+    
+      ],
+      "defaultData": [
+        {
+          "title": "Hospital Severna Event",
+          "description": "A test generic event",
+          "eventType": "Meeting",
+          "owner": "ishan@foo.com",
+          "eventPostedDate": 1598760240058,
+          "eventOccuranceDate": 1598760240058,
+          "community": "severna-park",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+    
+        },
+        {
+          "title": "Hospital Broadneck Event",
+          "description": "A test generic event",
+          "eventType": "Meeting",
+          "owner": "paxton@foo.com",
+          "eventPostedDate": 1598760240058,
+          "eventOccuranceDate": 1598760240058,
+          "community": "broadneck",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        },
+        {
+          "title": "Hospital Generic Event",
+          "description": "A test generic event",
+          "eventType": "Meeting",
+          "owner": "ishan@foo.com",
+          "eventPostedDate": 1598760240058,
+          "eventOccuranceDate": 1598760240058,
+          "community": "broadneck",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        },
+        {
+          "title": "Hospital Generic Event",
+          "description": "A test generic event",
+          "eventType": "Meeting",
+          "owner": "paxton@foo.com",
+          "eventPostedDate": 1598760240058,
+          "eventOccuranceDate": 1598760240058,
+          "community": "broadneck",
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        }
+      ],
+      "defaultBlogs": [
+        {
+          "title": "Generic Blog 1",
+          "content": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+          "timePosted": 1595632530500,
+          "image": "https://i.imgur.com/ViPItf1.jpg",
+          "user": "ishanadmin@foo.com",
+          "links" : ["https://google.com"],
+          "community": "broadneck"
+        },
+        {
+          "title": "Generic Blog 2",
+          "content": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+          "timePosted": 1595632530500,
+          "image": "https://i.imgur.com/ViPItf1.jpg",
+          "user": "paxtonadmin@foo.com",
+          "links" : ["https://google.com"],
+          "community": "severna-park"
+        }
+      ],
+      "defaultLinks": [
+        {
+          "title": "Generic Interview 1",
+          "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+          "linkType": "Misc Link",
+          "link" : "https://google.com",
+          "owner": "paxtonadmin@foo.com",
+          "community": "broadneck"
+        },
+        {
+          "title": "Generic Interview 2",
+          "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+          "linkType": "Misc Link",
+          "link" : "https://google.com",
+          "owner": "paxtonadmin@foo.com",
+          "community": "severna-park"
+        }
+      ],
+      "defaultInterviews": [
+        {
+          "title": "Generic Interview 1",
+          "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+          "timePosted": 1595632530500,
+          "timeConducted": 1595632530500,
+          "image": "https://i.imgur.com/ViPItf1.jpg",
+          "user": "ishanadmin@foo.com",
+          "community": "broadneck",
+          "interviewQuestions": [
+            {
+              "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+              "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+            },
+            {
+              "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+              "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+            },
+            {
+              "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+              "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+            }
+    
+          ]
+        },
+        
+        {
+          "title": "Generic Interview 1",
+          "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+          "timePosted": 1595632530500,
+          "timeConducted": 1595632530500,
+          "image": "https://i.imgur.com/ViPItf1.jpg",
+          "user": "ishanadmin@foo.com",
+          "community": "serverna-park",
+          "interviewQuestions": [
+            {
+              "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+              "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+            },
+            {
+              "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+              "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+            },
+            {
+              "question": "Ea enim commodo mollit labore mollit sint quis voluptate eiusmod magna anim esse consectetur.",
+              "answer": "Consectetur ex id laboris tempor nulla. Ea pariatur exercitation do tempor ex aliqua Lorem aliquip excepteur. Duis incididunt amet cupidatat quis enim nostrud dolore proident nulla est eiusmod enim. Tempor exercitation amet pariatur excepteur labore exercitation in veniam. Ipsum esse laborum non cupidatat. Nulla in officia fugiat officia cupidatat mollit velit non aute consectetur ullamco."
+            }
+    
+          ]
+        }
+      ],
+      "defaultForumLink": [
+        {
+        "title": "Forum Question 1",
+        "category": "Homework",
+        "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+        "user": "ishanadmin@foo.com",
+        "community": "severna-park",
+        "timePosted": 1595632530500
+        },
+        {
+          "title": "Forum Question 2",
+          "category": "Career",
+          "description": "Anim pariatur qui reprehenderit proident Lorem commodo ut. Elit nisi deserunt dolore adipisicing in voluptate aute pariatur est dolore laborum sunt minim adipisicing. Elit ea culpa duis do veniam non proident pariatur. Cillum non cillum consequat proident proident nostrud anim et ipsum non.",
+          "user": "paxtonadmin@foo.com",
+          "community": "broadneck",
+          "timePosted": 1595632530500
+          }
+      ],
+      "defaultAbout": [
+        {
+          "organizationName": "FHHMO",
+          "mission": {
+            "mission": "To support the eduction of future doctors and foster interest in related medical fields",
+            "vision": "To expand our organization to multiple and create a network of doctors and medical students with diverse backgrounds, passionate about helping students and contemporaries alike"
+          },
+          "story": {
+            "title": "The story of our founding",
+            "story": "I founded FHHMO because I had no idea about the scope and breadth of the medical feild and the opporunities present post-graduation",
+            "founderImage": "https://i.imgur.com/ViPItf1.jpg",
+            "founderName": "Paxton Paganelli"
+          },
+          "initiatives": {
+            "organizationInitiatives": [
+              "Help People",
+              "Make Doctors",
+              "Spread medical literacy",
+              "Don't hurt people"
+            ]
+          },
+          "user": "paxtonadmin@foo.com",
+          "imageGallery": [
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg"
+          ]
+        }
+      ],
+      "defaultCommunites":[
+        {
+          "chapterName": "Severna Park",
+          "leadership": [
+            {"position": "President", "holder": "Paxton Paganelli"},
+            {"position": "Vice President", "holder": "Paxton Paganelli"},
+            {"position": "Treasurer", "holder": "Paxton Paganelli"},
+            {"position": "Secretary", "holder": "Paxton Paganelli"}
+          ],
+          "history": {
+            "founderName": "Paxton Paganelli",
+            "founderStory": "I founded this chapter so I could get students at Severna Park High School interested in medicine",
+            "founderQuote": "Generic inspirational quote",
+            "founderImage": "https://i.imgur.com/ViPItf1.jpg",
+            "founderProfileLink": "paxtonadmin@foo.com"
+            
+          },
+          "advisor": {
+            "advisorName": "Paxton Paganelli",
+            "advisorBiography": "I am the chapter advisor. I am a doctor.",
+            "advisorQuote": "Generic advisor quote",
+            "advisorImage": "https://i.imgur.com/ViPItf1.jpg",
+            "advisorProfileLink": "paxtonadmin@foo.com"
+          },
+          "electionDate": 1595632530500,
+          "initiatives": {
+            "chapterInitiatives": [
+              "Help People",
+              "Make Doctors",
+              "Spread medical literacy",
+              "Don't hurt people"
+            ]
+          },
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          },
+        
+          "imageGallery": [
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg"
+          ],
+          "user" : "paxtonadmin@foo.com",
+          "community": "severna-park",
+          "fundraising": {
+            "fundName": "The fund",
+            "fundLink": "http://www.google.com"
+          }
+        },
+        {
+          "chapterName": "Broadneck",
+          "leadership": [
+            {"position": "President", "holder": "Paxton Paganelli"},
+            {"position": "Vice President", "holder": "Paxton Paganelli"},
+            {"position": "Treasurer", "holder": "Paxton Paganelli"},
+            {"position": "Secretary", "holder": "Paxton Paganelli"}
+          ],
+          "history": {
+            "founderName": "Paxton Paganelli",
+            "founderStory": "I founded this chapter so I could get students at Broadneck High School interested in medicine",
+            "founderQuote": "Generic inspirational quote",
+            "founderImage": "https://i.imgur.com/ViPItf1.jpg",
+            "founderProfileLink": "paxtonadmin@foo.com"
+            
+          },
+          "advisor": {
+            "advisorName": "Paxton Paganelli",
+            "advisorBiography": "I am the chapter advisor. I am a doctor.",
+            "advisorQuote": "Generic advisor quote",
+            "advisorImage": "https://i.imgur.com/ViPItf1.jpg",
+            "advisorProfileLink": "paxtonadmin@foo.com"
+          },
+          "electionDate": 1595632530500,
+          "initiatives": {
+            "chapterInitiatives": [
+              "Help People",
+              "Make Doctors",
+              "Spread medical literacy",
+              "Don't hurt people"
+            ]
+          },
+        
+          "imageGallery": [
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg",
+            "https://i.imgur.com/ViPItf1.jpg"
+          ],
+          "user" : "paxtonadmin@foo.com",
+          "community": "broadneck",
+          "fundraising": {
+            "fundName": "The fund",
+            "fundLink": "http://www.google.com"
+          },
+          "image": {
+            "url": "https://res.cloudinary.com/dtihxyw16/image/upload/v1598989616/tph2hnxlphkykwr3bbpc.jpg",
+            "public_id": "tph2hnxlphkykwr3bbpc"
+          }
+        }
+      ]
+    
+    
+  }
