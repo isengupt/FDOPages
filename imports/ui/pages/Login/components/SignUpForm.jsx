@@ -52,7 +52,7 @@ const SignUpForm = ({
           className="text-field w-input"
           name="name"
           data-name="Name"
-          placeholder=""
+          placeholder="Email"
           id="name"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
@@ -60,7 +60,7 @@ const SignUpForm = ({
 
 
 <div className="div-block-8">
-          <label for="email" className="form-label">
+          <label for="password" className="form-label">
             Password
           </label>
          
@@ -68,17 +68,17 @@ const SignUpForm = ({
         <input
           type="password"
           className="w-input"
-          name="email"
-          data-name="Email"
-          placeholder=""
-          id="email"
+          name="password"
+          data-name="Password"
+          placeholder="Password"
+          id="password"
           required=""
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
 
 <div className="div-block-8">
-          <label for="email" className="form-label">
+          <label for="confirmPassowrd" className="form-label">
            Confirm Password
           </label>
         
@@ -86,10 +86,10 @@ const SignUpForm = ({
         <input
           type="password"
           className="w-input"
-          name="email"
-          data-name="Email"
-          placeholder=""
-          id="email"
+          name="confirmPassowrd"
+          data-name="confirmPassword"
+          placeholder="Confirm Password"
+          id="confirmPassowrd"
           required=""
           value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}

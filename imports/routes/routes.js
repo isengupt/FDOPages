@@ -2,7 +2,7 @@ import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { FlowRouterMeta } from "meteor/ostrio:flow-router-meta";
 import { Cloudinary } from 'meteor/socialize:cloudinary';
 import { mount } from "react-mounter";
-
+import ReactGA from "react-ga";
 import Dashboard from '../ui/pages/Dashboard/Dashboard'
 import Resources from '../ui/pages/Resources/Resources'
 import AboutPage from '../ui/pages/About/AboutPage'

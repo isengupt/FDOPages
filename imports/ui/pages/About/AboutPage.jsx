@@ -24,6 +24,10 @@ const AboutPage = () => {
   }, []);
 
   useEffect(() => {
+    console.log(user)
+  }, [user, isLoggingIn]);
+
+  useEffect(() => {
     Meteor.call("setEditable", "about", (e, r) => {
       if (!e) {
         if (r) {

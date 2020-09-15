@@ -1,9 +1,21 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
 import { useAccount } from "../utils";
-
+import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 const Footer = () => {
   const { user } = useAccount();
+
+  function logoutFunction() {
+    Meteor.logout((error) => {
+      if (error) {
+        console.log(error.reason);
+      }
+      else {
+        FlowRouter.go('/')
+
+      }
+    })
+  }
   return (
     <>
       <div class="footer">
@@ -44,7 +56,10 @@ const Footer = () => {
                 <a
                   href="#"
                   className="footer-link"
-                  onClick={(ev) => ev.preventDefault() || Meteor.logout()}
+                  onClick={(ev) => ev.preventDefault() || 
+                  logoutFunction()
+                  
+                 }
                 >
                   Log out
                 </a>

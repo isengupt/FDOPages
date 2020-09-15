@@ -22,17 +22,20 @@ Meteor.methods({
        
             console.log(`  Creating user ${email}.`);
             const userID = Accounts.createUser({
-              username: email,
-              email: email,
-              password: password,
-            });
+                username: email,
+                email: email,
+                password: password,
+              })
+              console.log(userID)
               if (scope) {
-              Roles.addUsersToRoles(userID, ['member'], scope);   
-              } else {
-                Roles.addUsersToRoles(userID, ['member'],scope);   
+                if (scope) {
+                Roles.addUsersToRoles(userID, ['member'], scope);   
+                } else {
+                  Roles.addUsersToRoles(userID, ['member']);   
+                }
               }
             
-              return true
+              return {email: email, password: password}
           
     },
     getCurrentAboutData: function () {

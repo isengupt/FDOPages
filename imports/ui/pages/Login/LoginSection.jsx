@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Meteor } from "meteor/meteor";
 import { Roles } from 'meteor/alanning:roles';
 import toastr from "../../utils/toastr";
@@ -7,7 +7,10 @@ import { Accounts } from "meteor/accounts-base";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import Select from 'react-select';
+import {
 
+  useAccount,
+} from "../../utils/utils";
 const options = [
   { value: 'severna-park', label: 'Severna Park' },
   { value: 'broadneck', label: 'Broadneck' },
@@ -90,14 +93,23 @@ const LoginSection = ({ loginFormState }) => {
          Meteor.call("createMember", email, password, scope, (e, r) => {
             console.log(e)
             if (!e) {
-                console.log(r)
+              console.log(r)
+              Meteor.loginWithPassword(r.email, r.password, (e, r) => {
+                if (e) {
+                  if (e.reason === "There was a problem with your login")
+                    setError("Wrong credentials. Please check your password.");
+                  else setError(e.reason);
+                }
+              });
               
             }
         })
         
         
     
-      };
+      }; 
+   
+
     
       const login = () => {
         if (!email || !email.length) {
