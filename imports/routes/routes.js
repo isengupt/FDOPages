@@ -3,6 +3,7 @@ import { FlowRouterMeta } from "meteor/ostrio:flow-router-meta";
 import { Cloudinary } from 'meteor/socialize:cloudinary';
 import { mount } from "react-mounter";
 import ReactGA from "react-ga";
+
 import Dashboard from '../ui/pages/Dashboard/Dashboard'
 import Resources from '../ui/pages/Resources/Resources'
 import AboutPage from '../ui/pages/About/AboutPage'
@@ -21,7 +22,21 @@ import NotFound from '../ui/utils/components/NotFound'
 import Template from '../ui/utils/template/Template'
 import {setButtonState} from '../ui/utils/utils'
 
+ReactGA.initialize("UA-155335998-1")
 
+
+
+const scrollToTop = () => {
+  setTimeout(() => {
+    if (!window.location.hash) {
+      window.scroll(0, 0);
+    }
+  }, 25);
+};
+
+const registerView = (context) => ReactGA.pageview(context.path);
+
+FlowRouter.triggers.enter([scrollToTop, registerView]);
 
 Cloudinary.config({
   cloud_name:'dtihxyw16',
